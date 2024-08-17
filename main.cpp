@@ -1,6 +1,14 @@
 #include <iostream>
 //#include <constants.cpp>
 
+namespace first {
+    int specialx = 1;
+}
+
+namespace second {
+    int specialx = 2;
+}
+
 using namespace std;
 int main(){
     std::cout << "Hello World!" << "\n";
@@ -51,11 +59,31 @@ int main(){
     //std::cout << "Hello, " << name << "." << "\n";
     //std::cout << "You are " << age << " years old." << "\n";
     
-    double pi = 3.14159;
-    double radius = 10;
-    double circumference = 2 * pi * radius;
 
-    std::cout << circumference << "cm";
+    // CHAPTER 3: Discussing the Constant key word. https://youtu.be/-TkoO8Z07hI?si=oS4H_9wQ80DTkpp6&t=1461
+    // The const keyword specifies that a varibales value is constant and tells the compiler to not let anything change it. Effectively, "Read Only" access.
+    const double PI = 3.14159; //common naming convension for contstants is to make all of the letters in the name UPPERCASE.
+    const int LIGHTSPEED = 299792458;
+    const int WIDTH = 1920;
+    const int HEIGHT = 1080;
+    //PI = 420.69; // the program wont let us do this due to the const key word being used to not let PI be changed. 
+    
+    double radius = 10;
+    double circumference = 2 * PI * radius;
+
+    std::cout << circumference << "cm" << "\n";
+
+    //CHAPTER 4: Namespace = provideds a solution for preventing name conflicts in larger projects.
+    //                       Each entity needs a unique name. A namespace allows for the identically named entities
+    //                       as long as the namespaces are different.
+    using namespace second;
+    //int specialx = 0; //this would still overide the namespace value as it would be updating it.
+    //int special_x = 1; //this code would cause an error! Redecleration of variable int special_x.
+    std::cout << specialx << "\n"; // this will use the local version of special_x because we have not explicitly stated the namespace we want to use.
+    std::cout << first::specialx << "\n"; // the two colons "::" are known as the Scope Resolution Operator. We use it here to Prefix the
+                                  //  namepsace to the special_x variable.
+
+    
 
     return 0;
 }
