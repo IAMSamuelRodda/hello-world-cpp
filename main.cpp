@@ -4,6 +4,7 @@
 typedef std::vector<std::pair<std::string, int>> t_pairlist; // This gives the complex type definition a simple alias to call it by. 
                                                             // Refer CHAPTER 5. Common convention is to give these t_ for type.
 typedef std::string t_text;
+typedef int t_number;
 
 namespace first {
     int specialx = 1;
@@ -91,6 +92,10 @@ int main(){
                                                         //  of this program, we can use its shorter name instead.
     t_pairlist pairlist;
 
+    t_text firstName = "CHOUTZ";
+    t_number age = 33;
+    std::cout << firstName <<"\n";
+    std::cout << firstName <<"\n";
 
     return 0;
 }
