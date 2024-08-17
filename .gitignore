@@ -34,3 +34,4 @@
 # Other - Not in default C++ Git Ignore but came out of my build/debug play around
 *.ilk
 *.pdb
+.vscode
