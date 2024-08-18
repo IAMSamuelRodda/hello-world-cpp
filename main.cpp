@@ -113,14 +113,16 @@ int main(){
     t_text firstName = "CHOUTZ";
     //t_number age = 33;
     std::cout << firstName <<"\n";
-    std::cout << first::age <<"\n"; // uses namespace 'first' using the Scope Resolution Operator,
-    //                                 aka the double colon '::'.
+    std::cout << "Age: " << first::age <<"\n"; // Uses namespace 'first' using the 
+    //                                            Scope Resolution Operator, aka the 
+    //                                            double colon '::'.
 
 
     //CHAPTER 6: Arithmetic Operators = return the result of a specific arithmetic operations
     //                                  such as Addition +, Subtraction -, Multiplication *,
     //                                  and Division /.
-    double students = 20;
+    int students = 20;
+    int divider = 3;
     //students = students + 1; // standard way. However there is a short hand way of writing this.
     //students+=1; // this would do the same thing.
     
@@ -136,10 +138,15 @@ int main(){
     //students = students *2;
     //students*=2;
     //students = students / 3;
-    students/=3; //WARNING: if you do not change the 
-
-
-    std::cout << students;
+    //students/=3; //WARNING: if you do not change the Data Type for students to double,
+    //                      the remainder will get cut off aka truncated. Else, you can use 
+    //                      the Modulus operator % to get the remainder of any division.
+    int remainder = students % divider; // For example, here, if student = 20, the output is 2. 
+    //                                     This is because 3 divides into 20 up to 6 times with
+    //                                     a remainder of "2" left over. Only the remainder is
+    //                                     returned.
+    std::cout << "Number of students divided by " << divider << " is " << students/divider;
+    std::cout << " with remainder of " << remainder << "\n";
 
 
     return 0;
