@@ -84,7 +84,7 @@ int main(){
     //                not let PI be changed. 
     double radius = 10;
     double circumference = 2 * PI * radius;
-    std::cout << circumference << "cm" << "\n";
+    //std::cout << circumference << "cm" << "\n";
 
 
     //CHAPTER 4: Namespace = provideds a solution for preventing name conflicts in larger 
@@ -95,9 +95,9 @@ int main(){
     //int specialx = 0; //this would still overide the namespace value as it would be updating it.
     //int special_x = 1; //this code would cause an error! Redecleration of variable int 
     //                    special_x.
-    std::cout << "Namespace test default: specialx = " << specialx << "\n"; // this will use the local version of special_x because
+    //std::cout << "Namespace test default: specialx = " << specialx << "\n"; // this will use the local version of special_x because
     //                                we have not explicitly stated the namespace we want to use.
-    std::cout << "Namespace test first: specialx = " << first::specialx << "\n"; // the two colons "::" are known as 
+    //std::cout << "Namespace test first: specialx = " << first::specialx << "\n"; // the two colons "::" are known as 
     //                                      the Scope Resolution Operator. We use it here to
     //                                      Prefix the namepsace to the special_x variable.
 
@@ -113,8 +113,8 @@ int main(){
 
     t_text firstName = "CHOUTZ";
     //t_number age = 33;
-    std::cout << firstName <<"\n";
-    std::cout << "Age: " << first::age <<"\n"; // Uses namespace 'first' using the 
+    //std::cout << firstName <<"\n";
+    //std::cout << "Age: " << first::age <<"\n"; // Uses namespace 'first' using the 
     //                                            Scope Resolution Operator, aka the 
     //                                            double colon '::'.
 
@@ -146,18 +146,43 @@ int main(){
     //                                     This is because 3 divides into 20 up to 6 times with
     //                                     a remainder of "2" left over. Only the remainder is
     //                                     returned.
-    std::cout << "Number of students divided by " << divider << " is " << students/divider;
-    std::cout << " with remainder of " << remainder << "\n";
+    //std::cout << "Number of students divided by " << divider << " is " << students/divider;
+    //std::cout << " with remainder of " << remainder << "\n";
     // REMEMBER:: Order of operation is: Resolve Parenthesis first, then Multiplaction and
     //            Division, then Addition and Subtraction.
 
 
-    // CHAPTER 7: Type Conversion = conversion of a value from one data type to another.
-    //                              Implicit = Automatic.
-    //                              Explicit = Precede value with new data type (int)
+    // CHAPTER 7: Type Conversion = conversion of a value from one data type to another. There 
+    //                              are two ways we can do this, which is called casting or
+    //                              Type Casing.
+    //                              Implicit cast = Automatic.
+    //                              Explicit cast = Precede a value with new data type, for
+    //                              (int) 
     // Starts here: https://youtu.be/-TkoO8Z07hI?si=UYHCTbSN6qirgnHG&t=2608
+    int my_x = 3.14;
+    //std::cout << "My x = " << my_x << ". "; // The decimal is truncated because int can only 
+    //                                         display whole numbers.
+    //
+    // Let's try a type cast scenario.
+    double my_y = (int) 4.14; // This will "Explicitly" cast this initially "double" type, aka
+    //                           decimal, as an "int" type, aka whole number.
+    //std::cout << "My y = " << my_y << "\n"; // The decimal is truncated because int can only display
+    //                                 whole numbers.
+    char char_x = 100; // What will happen here is that we will "Implicitly" cast the number 100
+    //                    as an ASCII character.
+    //std::cout << "ASCII Character of " << (int) char_x << " is " << char_x << "\n"; // ASCII table dictates that the mumber 100 answer should be the character 'd'.
 
+    int correct = 8;
+    int questions = 10;
+    //double score = correct/questions * 100; // this will result in a 0%. Because we are using int
+    //                                         division which truncates the decimal before
+    //                                         multiplying by 100.
+    //
+    // Let's explicitly case questions and double data type.
+    double score = correct/(double)questions * 100;
+    //std::cout << score << " %" << "\n";
 
+    
 
 
     return 0;
