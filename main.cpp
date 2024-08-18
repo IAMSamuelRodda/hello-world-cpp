@@ -1,6 +1,7 @@
 //CHAPTER 1: Setup in VS Code and Installation
 #include <iostream>
 #include <vector>
+#include <string>
 //#include <constants.cpp> // ask simon why adding this didn't work?
 typedef std::vector<std::pair<std::string, int>> t_pairlist; // This gives the complex type 
 //                                                              definition a simple alias to call it by. 
@@ -14,6 +15,7 @@ typedef int t_number;
 namespace first {
     int specialx = 5;
     int age = 33;
+    std::string name;
 }
 
 namespace second {
@@ -182,8 +184,27 @@ int main(){
     double score = correct/(double)questions * 100;
     //std::cout << score << " %" << "\n";
 
-    
 
+    //CHAPTER 8: User input = cin >> for Character Input as opposed to cout << for
+    //                        Character Output. cout << is Insertion Operator. 
+    //                        cin >> is Extraction operator.
 
+    std::cout << "What is your age?: ";
+    std::cin >> first::age;
+    std::cout << "What is your full name?: "; // WARNING: if we need to read a string that may
+    //                                                    contain spaces, there is a function
+    //                                                    that will help us with that.
+    //std::getline(std::cin, first::name); // the getline() function will allow for white space
+    //                                      characters to be inputed.
+    //                                      WARNING: In the getline() function, there is a newline
+    //                                      character "\n" at the end of the input. 
+    //                                      This is accepted as input in any further cin >>!!
+    //                                      To prevent this from hapopening, we modify the code.
+    std::getline(std::cin >> std::ws, first::name); // ws stands for White Spaces. This will
+    //                                                 eliminate any White Space or newline
+    //                                                 characters before any user input.
+    std::cout << "Hello, " << first::name << "\n";
+
+    std::cout << "You are " << first::age << " years old." << "\n";
     return 0;
 }
