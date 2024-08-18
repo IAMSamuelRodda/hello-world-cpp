@@ -10,13 +10,14 @@ typedef std::vector<std::pair<std::string, int>> t_pairlist; // This gives the c
 typedef std::string t_text;
 typedef int t_number;
 
+// NAMESPACES SET FOR CHAPTER 4.
 namespace first {
-    int specialx = 1;
+    int specialx = 5;
     int age = 33;
 }
 
 namespace second {
-    int specialx = 2;
+    int specialx = 3;
 }
 
 //using namespace std; //Avoid doing this!!! There are many deeper datatypes inside std::,
@@ -94,9 +95,9 @@ int main(){
     //int specialx = 0; //this would still overide the namespace value as it would be updating it.
     //int special_x = 1; //this code would cause an error! Redecleration of variable int 
     //                    special_x.
-    std::cout << specialx << "\n"; // this will use the local version of special_x because
+    std::cout << "Namespace test default: specialx = " << specialx << "\n"; // this will use the local version of special_x because
     //                                we have not explicitly stated the namespace we want to use.
-    std::cout << first::specialx << "\n"; // the two colons "::" are known as 
+    std::cout << "Namespace test first: specialx = " << first::specialx << "\n"; // the two colons "::" are known as 
     //                                      the Scope Resolution Operator. We use it here to
     //                                      Prefix the namepsace to the special_x variable.
 
@@ -147,6 +148,16 @@ int main(){
     //                                     returned.
     std::cout << "Number of students divided by " << divider << " is " << students/divider;
     std::cout << " with remainder of " << remainder << "\n";
+    // REMEMBER:: Order of operation is: Resolve Parenthesis first, then Multiplaction and
+    //            Division, then Addition and Subtraction.
+
+
+    // CHAPTER 7: Type Conversion = conversion of a value from one data type to another.
+    //                              Implicit = Automatic.
+    //                              Explicit = Precede value with new data type (int)
+    // Starts here: https://youtu.be/-TkoO8Z07hI?si=UYHCTbSN6qirgnHG&t=2608
+
+
 
 
     return 0;
