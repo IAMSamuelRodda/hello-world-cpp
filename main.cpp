@@ -39,6 +39,10 @@ namespace chapter_eleven {
     int age;
 }
 
+namespace chapter_17 {
+    std::string name;
+}
+
 //using namespace std; //Avoid doing this!!! There are many deeper datatypes inside std::,
 //                       thus, it is very likely that a conflict will occur.
 
@@ -451,21 +455,67 @@ int main(){
     //     std::cout << "The temperatures is good!";   
     // }
     
-    bool sunny;
-    std::cout << "Is it sunny? (yes = 1, no = 0): "; // it seems you cannot give it true or false. 
-    std::cin >> sunny;
-    if (sunny) // this if statement is only activated if BOTH conditions are true.
-    {
-        std::cout << "It is sunny.";   
-    }
-    else if (!sunny)
-    {
-        std::cout << "It is cloudy!";   
-    }
-    else 
-    {
-        std::cout << "Please enter 1 or 0.";
-    }
+    // bool sunny;
+    // std::cout << "Is it sunny? (yes = 1, no = 0): "; // it seems you cannot give it true or false. 
+    // std::cin >> sunny;
+    // if (sunny) // this if statement is only activated if BOTH conditions are true.
+    // {
+    //     std::cout << "It is sunny.";   
+    // }
+    // else if (!sunny)
+    // {
+    //     std::cout << "It is cloudy!";   
+    // }
+    // else 
+    // {
+    //     std::cout << "Please enter 1 or 0.";
+    // }
+
+    
+    
+    // CHAPTER 16: Temperature calculator.
+    // I skipped this lesson / chapter
+
+
+    // CHAPTER 17: Useful string methods in C++.
+    // see chapter_17 namespace at the top of this file for the std::string name; declaration.
+    std::cout << "Enter your name: ";
+    std::getline(std::cin, chapter_17::name);
+    // if(chapter_17::name.length()>12) //the built in length of a string in characters.
+    // {
+    //     std::cout << "Your name cannot be over 12 characters long.";
+    // }
+    // else 
+    // {
+    //     std::cout << "Welcome, " << chapter_17::name;
+    // }
+
+
+    // if(chapter_17::name.empty()) //checks to see if string is empty and returns a bool.
+    // {
+    //     std::cout << "You didn't enter your name. :(";
+    // }
+    // else 
+    // {
+    //     std::cout << "Welcome, " << chapter_17::name;
+    // }
+
+    // chapter_17::name.clear();
+    // std::cout << "Hello, " << chapter_17::name; // You won't have a name as the value of
+    // //                                             name is cleared.
+
+    // chapter_17::name.append("@gmail.com"); // this adds aka "connects" this new text to the string
+    // std::cout << "Your usename is " << chapter_17::name; 
+    //chapter_17::name.at(0); // this returns the character at position 0 aka the first character
+    //                         in the string.
+    std::cout << "The character at this position is : " << chapter_17::name.at(0);
+    std::cout << "Your username is : " << chapter_17::name.insert(0,"@"); // Inserts characters at position specified
+    //                                                                       in string
+    std::cout << "Your username is : " << chapter_17::name.find(" "); // This will give the position of the first white space.
+
+
+
+
 
     return 0;
 }
