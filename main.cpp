@@ -362,41 +362,66 @@ int main(){
 
 
     //CHAPTER 13: Calculator program
-    char op;
-    double num1;
-    double num2;
-    double result;
-    std::cout << "~~~~~~~~~~~~ CALCULATOR APP ~~~~~~~~~~~~\n";
-    std::cout << "Enter your first number: ";
-    std::cin >> num1;
-    std::cout << "Enter either + - * / here: ";
-    std::cin >> op;
-    std::cout << "Enter your second number: ";
-    std::cin >> num2;
+    // char op;
+    // double num1;
+    // double num2;
+    // double result;
+    // std::cout << "~~~~~~~~~~~~ CALCULATOR APP ~~~~~~~~~~~~\n";
+    // std::cout << "Enter your first number: ";
+    // std::cin >> num1;
+    // std::cout << "Enter either + - * / here: ";
+    // std::cin >> op;
+    // std::cout << "Enter your second number: ";
+    // std::cin >> num2;
 
-    switch (op) // We use op here as we are examining cases of different operators.
-    {
-        case '+': //make sure the operator sign is inside single quotes '' as it needs to be 
-        //          a character "char" in this case.
-            result = num1 + num2;
-            std::cout << "Your result is : "<< result << "\n";
-            break;
-        case '-':
-            result = num1 - num2;
-            std::cout << "Your result is : "<< result << "\n";
-            break;
-        case '*':
-            result = num1 * num2;
-            std::cout << "Your result is : "<< result << "\n";
-            break;
-        case '/':
-            result = num1 / num2;
-            std::cout << "Your result is : "<< result << "\n";
-            break;
-        default:
-            std::cout << "Please enter valid numbers and operator characters only.";
-    }
-    std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    // switch (op) // We use op here as we are examining cases of different operators.
+    // {
+    //     case '+': //make sure the operator sign is inside single quotes '' as it needs to be 
+    //     //          a character "char" in this case.
+    //         result = num1 + num2;
+    //         std::cout << "Your result is : "<< result << "\n";
+    //         break;
+    //     case '-':
+    //         result = num1 - num2;
+    //         std::cout << "Your result is : "<< result << "\n";
+    //         break;
+    //     case '*':
+    //         result = num1 * num2;
+    //         std::cout << "Your result is : "<< result << "\n";
+    //         break;
+    //     case '/':
+    //         result = num1 / num2;
+    //         std::cout << "Your result is : "<< result << "\n";
+    //         break;
+    //     default:
+    //         std::cout << "Please enter valid numbers and operator characters only.";
+    // }
+    // std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+
+
+    //CHAPTER 14: Ternary Operator, aka ?:
+    //            This operator is a replacement to using an if/else statement.
+    //            For example,
+    //            condition ? expression1 : expression2;
+    //
+    // Proper example.
+    int my_grade = 75;
+    // if(grade >= 60)
+    // {
+    //     std::cout << "You pass!";
+    // }
+    // else
+    // {
+    //     std::cout << "You FAILED!";
+    // }
+    // We can replace the above example with the following.
+    my_grade >= 60 ? std::cout << "You passed!" : std::cout << "You failed!";
+
+    bool hungry = true;
+    hungry ? std::cout << " You are hungry." : std::cout << " You are full.";
+    // NOTE: there is no need to write the above as hungry == true as this is the default if 
+    //       not addressed or left out as in the above example.
+
 
     return 0;
 }
