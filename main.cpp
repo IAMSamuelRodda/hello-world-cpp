@@ -35,6 +35,10 @@ namespace chapter_ten {
     double c;
 }
 
+namespace chapter_eleven {
+    int age;
+}
+
 //using namespace std; //Avoid doing this!!! There are many deeper datatypes inside std::,
 //                       thus, it is very likely that a conflict will occur.
 
@@ -253,13 +257,42 @@ int main(){
     // chapter_eight::z = floor(2.8); // rounds up to nearest whole number
     // std::cout << "floor(2.8) is " << chapter_eight::z << "\n";
 
-    // CHAPTER 10: Practice Program to find the hypotinus of a triange
+    // CHAPTER 10: Practice Program to find the hypotinus of a triangle
     // Formula is c = sqrt(a^2 + b^2)
-    std::cout <<  "What is the Opposite side length? ";
-    std::cin >> chapter_ten::b;
-    std::cout <<  "What is the Adjacent side length? ";
-    std::cin >> chapter_ten::a;
-    std::cout << "The hypotenuse is : " << hypot(chapter_ten::b,chapter_ten::a); // https://cplusplus.com/reference/cmath/hypot/
+    // std::cout <<  "What is the Opposite side length? ";
+    // std::cin >> chapter_ten::b;
+    // std::cout <<  "What is the Adjacent side length? ";
+    // std::cin >> chapter_ten::a;
+    // std::cout << "The hypotenuse is : " << hypot(chapter_ten::b,chapter_ten::a); // https://cplusplus.com/reference/cmath/hypot/
+
+
+    // CHAPTER 11: if statements = do something if condition is true. If not, then don't do it.
+    std::cout << "Enter your age: ";
+    std::cin >> chapter_eleven::age;
+    
+    if (chapter_eleven::age >= 18)
+    {
+        std::cout << "Welcome to the site!";
+    }
+    else if(chapter_eleven::age < 0)
+    {
+        std::cout << "You have not been born yet!";
+    }
+    else if (chapter_eleven::age == 17)
+    {
+        std::cout << "You are ALMOST old enough to enter...";
+    }
+    else if (chapter_eleven::age >= 100) // WARNING: We run the above code first. As age >= 18
+    //                                               was resolved first, we excited the if loop.
+    //                                               In this case, you should move this to the top
+    //                                               if you want this code to run correctly.
+    {
+        std::cout << "You are too old to enter the site!";
+    }
+    else 
+    {
+        std::cout << "You are not old enough to enter!";
+    }
 
     return 0;
 }
