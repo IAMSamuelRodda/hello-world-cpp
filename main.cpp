@@ -267,32 +267,96 @@ int main(){
 
 
     // CHAPTER 11: if statements = do something if condition is true. If not, then don't do it.
-    std::cout << "Enter your age: ";
-    std::cin >> chapter_eleven::age;
+    // std::cout << "Enter your age: ";
+    // std::cin >> chapter_eleven::age;
     
-    if (chapter_eleven::age >= 18)
-    {
-        std::cout << "Welcome to the site!";
-    }
-    else if(chapter_eleven::age < 0)
-    {
-        std::cout << "You have not been born yet!";
-    }
-    else if (chapter_eleven::age == 17)
-    {
-        std::cout << "You are ALMOST old enough to enter...";
-    }
-    else if (chapter_eleven::age >= 100) // WARNING: We run the above code first. As age >= 18
-    //                                               was resolved first, we excited the if loop.
-    //                                               In this case, you should move this to the top
-    //                                               if you want this code to run correctly.
-    {
-        std::cout << "You are too old to enter the site!";
-    }
-    else 
-    {
-        std::cout << "You are not old enough to enter!";
-    }
+    // if (chapter_eleven::age >= 18)
+    // {
+    //     std::cout << "Welcome to the site!";
+    // }
+    // else if(chapter_eleven::age < 0)
+    // {
+    //     std::cout << "You have not been born yet!";
+    // }
+    // else if (chapter_eleven::age == 17)
+    // {
+    //     std::cout << "You are ALMOST old enough to enter...";
+    // }
+    // else if (chapter_eleven::age >= 100) // WARNING: We run the above code first. As age >= 18
+    // //                                               was resolved first, we excited the if loop.
+    // //                                               In this case, you should move this to the top
+    // //                                               if you want this code to run correctly.
+    // {
+    //     std::cout << "You are too old to enter the site!";
+    // }
+    // else 
+    // {
+    //     std::cout << "You are not old enough to enter!";
+    // }
 
-    return 0;
+    // return 0;
+
+
+    // CHAPTER 12: Switch = alterative to using many "else of" statements. It compares one value
+    //                      against matching cases.
+    //
+    // Here is an example of what to avoid doing!!!
+    // int month;
+    // std::cout << "Entre the month (1-12): ";
+    // std::cin >> month;
+    // if(month == 1)
+    // {
+    //     std::cout << "It's January";
+    // }
+    // else if(month ==2) 
+    // {
+    //     std::cout << "It's February";
+    // }
+    //etc etc,
+    // Instead, use a swtich.
+    //
+    //Here is a better example:
+    int month;
+    std::cout << "Entre the month (1-12): ";
+    std::cin >> month;
+    switch(month){
+        case 1:
+            std::cout << "It is January";
+            break;
+        case 2:
+            std::cout << "It is February";
+            break;
+        case 3:
+            std::cout << "It is March";
+            break;
+        case 4:
+            std::cout << "It is April";
+            break;
+        case 5:
+            std::cout << "It is May";
+            break;
+        case 6:
+            std::cout << "It is June";
+            break;
+        case 7:
+            std::cout << "It is July";
+            break;
+        case 8:
+            std::cout << "It is August";
+            break;
+        case 9:
+            std::cout << "It is September";
+            break;
+        case 10:
+            std::cout << "It is October";
+            break;
+        case 11:
+            std::cout << "It is November";
+            break;
+        case 12:
+            std::cout << "It is December";
+            break;
+        default:
+            std::cout << "Please enter in only numbers (1-12)";
+    }
 }
