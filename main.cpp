@@ -316,47 +316,87 @@ int main(){
     // Instead, use a swtich.
     //
     //Here is a better example:
-    int month;
-    std::cout << "Entre the month (1-12): ";
-    std::cin >> month;
-    switch(month){
-        case 1:
-            std::cout << "It is January";
+    // int month;
+    // std::cout << "Entre the month (1-12): ";
+    // std::cin >> month;
+    // switch(month){
+    //     case 1:
+    //         std::cout << "It is January";
+    //         break;
+    //     case 2:
+    //         std::cout << "It is February";
+    //         break;
+    //     case 3:
+    //         std::cout << "It is March";
+    //         break;
+    //     case 4:
+    //         std::cout << "It is April";
+    //         break;
+    //     case 5:
+    //         std::cout << "It is May";
+    //         break;
+    //     case 6:
+    //         std::cout << "It is June";
+    //         break;
+    //     case 7:
+    //         std::cout << "It is July";
+    //         break;
+    //     case 8:
+    //         std::cout << "It is August";
+    //         break;
+    //     case 9:
+    //         std::cout << "It is September";
+    //         break;
+    //     case 10:
+    //         std::cout << "It is October";
+    //         break;
+    //     case 11:
+    //         std::cout << "It is November";
+    //         break;
+    //     case 12:
+    //         std::cout << "It is December";
+    //         break;
+    //     default:
+    //         std::cout << "Please enter in only numbers (1-12)";
+    // }
+
+
+    //CHAPTER 13: Calculator program
+    char op;
+    double num1;
+    double num2;
+    double result;
+    std::cout << "~~~~~~~~~~~~ CALCULATOR APP ~~~~~~~~~~~~\n";
+    std::cout << "Enter your first number: ";
+    std::cin >> num1;
+    std::cout << "Enter either + - * / here: ";
+    std::cin >> op;
+    std::cout << "Enter your second number: ";
+    std::cin >> num2;
+
+    switch (op) // We use op here as we are examining cases of different operators.
+    {
+        case '+': //make sure the operator sign is inside single quotes '' as it needs to be 
+        //          a character "char" in this case.
+            result = num1 + num2;
+            std::cout << "Your result is : "<< result << "\n";
             break;
-        case 2:
-            std::cout << "It is February";
+        case '-':
+            result = num1 - num2;
+            std::cout << "Your result is : "<< result << "\n";
             break;
-        case 3:
-            std::cout << "It is March";
+        case '*':
+            result = num1 * num2;
+            std::cout << "Your result is : "<< result << "\n";
             break;
-        case 4:
-            std::cout << "It is April";
-            break;
-        case 5:
-            std::cout << "It is May";
-            break;
-        case 6:
-            std::cout << "It is June";
-            break;
-        case 7:
-            std::cout << "It is July";
-            break;
-        case 8:
-            std::cout << "It is August";
-            break;
-        case 9:
-            std::cout << "It is September";
-            break;
-        case 10:
-            std::cout << "It is October";
-            break;
-        case 11:
-            std::cout << "It is November";
-            break;
-        case 12:
-            std::cout << "It is December";
+        case '/':
+            result = num1 / num2;
+            std::cout << "Your result is : "<< result << "\n";
             break;
         default:
-            std::cout << "Please enter in only numbers (1-12)";
+            std::cout << "Please enter valid numbers and operator characters only.";
     }
+    std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+
+    return 0;
 }
