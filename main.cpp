@@ -47,6 +47,10 @@ namespace chapter_18{
     std::string name;
 }
 
+namespace chapter_19{
+    int number;
+}
+
 //using namespace std; //Avoid doing this!!! There are many deeper datatypes inside std::,
 //                       thus, it is very likely that a conflict will occur.
 
@@ -522,13 +526,48 @@ int main(){
     //std::cout << "Your name is : " << chapter_17::name; 
 
 
-    // CHAPTER 18: While loops. Potential to repeat code an infinite amount of times.
+    // CHAPTER 18: While loops = alternative to if statements that potentially repeat code an infinite amount of times
+    //                           until a condition is met.
     // Useful example:
-    while(chapter_18::name.empty()){
-        std::cout << "Enter your name: ";
-        std::getline(std::cin, chapter_18::name); 
-    }
-    std::cout << "Hello, " << chapter_18::name;
+    // if(chapter_18::name.empty()){
+    //     std::cout << "Enter your name: ";
+    //     std::getline(std::cin, chapter_18::name); 
+    // } //This returns no name!!! Use a while function instead; see below.
+    // while(chapter_18::name.empty()){
+    //     std::cout << "Enter your name: ";
+    //     std::getline(std::cin, chapter_18::name); 
+    // } //This returns no name!!! Use a while function instead; see below.
+    // std::cout << "Hello, " << chapter_18::name;
 
+    // CHAPTER 19: do while loops = do some block of code first, THEN repeat again if condition is true.
+    // Here is an example that uses a while loop which I can then show would be better with a do while loop.
+    // while (chapter_19::number < 0){ // we have declared our number in chapter_19 namespace int number; it is 0.
+    // //                                 When we reach the while loop, the loops is by passed as it is 0 already!
+    //     std::cout << "Enter a positive number: ";
+    //     std::cin >> chapter_19::number;
+    // }
+
+    // // We could do this: it is a bad solution as it duplicates code. It is not DRY.
+    // std::cout << "Enter a positive number: ";
+    // std::cin >> chapter_19::number;
+
+    // while (chapter_19::number < 0){
+    //     std::cout << "Enter a positive number: ";
+    //     std::cin >> chapter_19::number;
+    // }
+    //
+    //
+    // Better to use a do while loop:
+    do 
+    { // we have declared our number in chapter_19 namespace int number; it is 0.
+    //                                 When we reach the while loop, the loops is by passed as it is 0 already!
+        std::cout << "Enter a positive number: ";
+        std::cin >> chapter_19::number;
+    } 
+    while (chapter_19::number < 0);
+
+    std::cout << "The number is : " << chapter_19::number;
     return 0;
+
 }
+
