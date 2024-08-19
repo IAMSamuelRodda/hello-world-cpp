@@ -415,13 +415,57 @@ int main(){
     //     std::cout << "You FAILED!";
     // }
     // We can replace the above example with the following.
-    my_grade >= 60 ? std::cout << "You passed!" : std::cout << "You failed!";
+    //my_grade >= 60 ? std::cout << "You passed!" : std::cout << "You failed!";
 
-    bool hungry = true;
-    hungry ? std::cout << " You are hungry." : std::cout << " You are full.";
+    bool hungry = false;
+    //hungry ? std::cout << " You are hungry." : std::cout << " You are full.";
     // NOTE: there is no need to write the above as hungry == true as this is the default if 
     //       not addressed or left out as in the above example.
+    // The below will also work!
+    //std::cout << (hungry ? " You are hungry." : " You are full.");
 
+
+
+    //CHAPTER 15: Logical operators
+    //            && = checks if two conditions are true.
+    //            || = checks if at least one of the two conditions are true.
+    //            !  = reverses the logical state of its operand.
+    int temp;
+    //std::cout << "Enter the temperature: ";
+    //std::cin >> temp;
+    // if (temp > 0 && temp <30) // this if statement is only activated if BOTH conditions are true.
+    // {
+    //     std::cout << "The temperatures is good!";   
+    // }
+    // else 
+    // {
+    //     std::cout << "The temperatures is bad!";   
+    // }
+    // if (temp <= 0 || temp >= 30) // this if statement is only activated if one of these are met.
+    // {
+    //     std::cout << "The temperatures is bad!";   
+    // }
+    // else 
+
+    // {
+    //     std::cout << "The temperatures is good!";   
+    // }
+    
+    bool sunny;
+    std::cout << "Is it sunny? (yes = 1, no = 0): "; // it seems you cannot give it true or false. 
+    std::cin >> sunny;
+    if (sunny) // this if statement is only activated if BOTH conditions are true.
+    {
+        std::cout << "It is sunny.";   
+    }
+    else if (!sunny)
+    {
+        std::cout << "It is cloudy!";   
+    }
+    else 
+    {
+        std::cout << "Please enter 1 or 0.";
+    }
 
     return 0;
 }
