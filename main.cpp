@@ -29,6 +29,11 @@ namespace chapter_eight {
     double z;
 }
 
+namespace chapter_ten {
+    double a;
+    double b;
+    double c;
+}
 
 //using namespace std; //Avoid doing this!!! There are many deeper datatypes inside std::,
 //                       thus, it is very likely that a conflict will occur.
@@ -248,7 +253,13 @@ int main(){
     // chapter_eight::z = floor(2.8); // rounds up to nearest whole number
     // std::cout << "floor(2.8) is " << chapter_eight::z << "\n";
 
-    // CHAPTER 10: 
+    // CHAPTER 10: Practice Program to find the hypotinus of a triange
+    // Formula is c = sqrt(a^2 + b^2)
+    std::cout <<  "What is the Opposite side length? ";
+    std::cin >> chapter_ten::b;
+    std::cout <<  "What is the Adjacent side length? ";
+    std::cin >> chapter_ten::a;
+    std::cout << "The hypotenuse is : " << hypot(chapter_ten::b,chapter_ten::a); // https://cplusplus.com/reference/cmath/hypot/
 
     return 0;
 }
