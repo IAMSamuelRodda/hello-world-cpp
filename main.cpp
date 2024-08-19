@@ -43,6 +43,10 @@ namespace chapter_17 {
     std::string name;
 }
 
+namespace chapter_18{
+    std::string name;
+}
+
 //using namespace std; //Avoid doing this!!! There are many deeper datatypes inside std::,
 //                       thus, it is very likely that a conflict will occur.
 
@@ -479,8 +483,8 @@ int main(){
 
     // CHAPTER 17: Useful string methods in C++.
     // see chapter_17 namespace at the top of this file for the std::string name; declaration.
-    std::cout << "Enter your name: ";
-    std::getline(std::cin, chapter_17::name);
+    //std::cout << "Enter your name: ";
+    //std::getline(std::cin, chapter_17::name);
     // if(chapter_17::name.length()>12) //the built in length of a string in characters.
     // {
     //     std::cout << "Your name cannot be over 12 characters long.";
@@ -508,14 +512,23 @@ int main(){
     // std::cout << "Your usename is " << chapter_17::name; 
     //chapter_17::name.at(0); // this returns the character at position 0 aka the first character
     //                         in the string.
-    std::cout << "The character at this position is : " << chapter_17::name.at(0);
-    std::cout << "Your username is : " << chapter_17::name.insert(0,"@"); // Inserts characters at position specified
+    //std::cout << "The character at this position is : " << chapter_17::name.at(0);
+    //std::cout << "Your username is : " << chapter_17::name.insert(0,"@"); // Inserts characters at position specified
     //                                                                       in string
-    std::cout << "Your username is : " << chapter_17::name.find(" "); // This will give the position of the first white space.
+    //std::cout << "Your username is : " << chapter_17::name.find(" "); // This will give the position of the first white space.
+    chapter_17::name.erase(0,5); // this erases characters from a string. 0 is the starting index. 3 is the number of
+    //                             characters erased, or more accurately, the ending index (not inclusive).
+    // More info here: https://cplusplus.com/reference/string/string/ 
+    //std::cout << "Your name is : " << chapter_17::name; 
 
 
-
-
+    // CHAPTER 18: While loops. Potential to repeat code an infinite amount of times.
+    // Useful example:
+    while(chapter_18::name.empty()){
+        std::cout << "Enter your name: ";
+        std::getline(std::cin, chapter_18::name); 
+    }
+    std::cout << "Hello, " << chapter_18::name;
 
     return 0;
 }
