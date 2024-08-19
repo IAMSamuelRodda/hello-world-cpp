@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cmath>
 //#include <constants.cpp> // ask simon why adding this didn't work?
 typedef std::vector<std::pair<std::string, int>> t_pairlist; // This gives the complex type 
 //                                                              definition a simple alias to call it by. 
@@ -12,15 +13,22 @@ typedef std::string t_text;
 typedef int t_number;
 
 // NAMESPACES SET FOR CHAPTER 4.
-namespace first {
+namespace chapter_4_first {
     int specialx = 5;
     int age = 33;
     std::string name;
 }
 
-namespace second {
+namespace chapter_four_second {
     int specialx = 3;
 }
+
+namespace chapter_eight {
+    double x = 3;
+    double y = 4;
+    double z;
+}
+
 
 //using namespace std; //Avoid doing this!!! There are many deeper datatypes inside std::,
 //                       thus, it is very likely that a conflict will occur.
@@ -93,15 +101,15 @@ int main(){
     //                       projects. Each entity needs a unique name. A namespace allows for
     //                       the identically named entities as long as the namespaces are
     //                       different.
-    using namespace second;
+    using namespace chapter_four_second;
     //int specialx = 0; //this would still overide the namespace value as it would be updating it.
     //int special_x = 1; //this code would cause an error! Redecleration of variable int 
     //                    special_x.
     //std::cout << "Namespace test default: specialx = " << specialx << "\n"; // this will use the local version of special_x because
     //                                we have not explicitly stated the namespace we want to use.
-    //std::cout << "Namespace test first: specialx = " << first::specialx << "\n"; // the two colons "::" are known as 
-    //                                      the Scope Resolution Operator. We use it here to
-    //                                      Prefix the namepsace to the special_x variable.
+    //std::cout << "Namespace test chapter_4_first: specialx = " << chapter_4_first::specialx << "\n"; 
+    // the two colons in the above code "::" are known as the Scope Resolution Operator. We use
+    // it here to Prefix the namepsace to the special_x variable.
 
 
     //CHAPTER 5: typedef = reserved keyword used to create an additional name (alias) for
@@ -189,22 +197,58 @@ int main(){
     //                        Character Output. cout << is Insertion Operator. 
     //                        cin >> is Extraction operator.
 
-    std::cout << "What is your age?: ";
-    std::cin >> first::age;
-    std::cout << "What is your full name?: "; // WARNING: if we need to read a string that may
+    //std::cout << "What is your age?: ";
+    //std::cin >> chapter_4_first::age;
+    //std::cout << "What is your full name?: "; // WARNING: if we need to read a string that may
     //                                                    contain spaces, there is a function
     //                                                    that will help us with that.
-    //std::getline(std::cin, first::name); // the getline() function will allow for white space
+    //std::getline(std::cin, chapter_4_first::name); // the getline() function will allow for white space
     //                                      characters to be inputed.
     //                                      WARNING: In the getline() function, there is a newline
     //                                      character "\n" at the end of the input. 
     //                                      This is accepted as input in any further cin >>!!
     //                                      To prevent this from hapopening, we modify the code.
-    std::getline(std::cin >> std::ws, first::name); // ws stands for White Spaces. This will
+    //std::getline(std::cin >> std::ws, chapter_4_first::name); // ws stands for White Spaces. This will
     //                                                 eliminate any White Space or newline
     //                                                 characters before any user input.
-    std::cout << "Hello, " << first::name << "\n";
+    //std::cout << "Hello, " << chapter_4_first::name << "\n";
 
-    std::cout << "You are " << first::age << " years old." << "\n";
+    //std::cout << "You are " << chapter_4_first::age << " years old." << "\n";
+
+
+
+    // CHAPTER 9: Useful math related functions : https://cplusplus.com/reference/cmath/
+    // max()
+    // chapter_eight::z = std::max(chapter_eight::x ,chapter_eight::y); //this is comparing x and y
+    // //                                                                 from the namespace
+    // //                                                                 "chapter_eight".
+    // std::cout << "max() is " << chapter_eight::z << "\n";
+    // // min()
+    // chapter_eight::z = std::min(chapter_eight::x ,chapter_eight::y);
+    // std::cout << "min() is " << chapter_eight::z << "\n";
+    // // pow() included with the #include <cmath> library at the top of this file.
+    // chapter_eight::z = pow(2,3); // raise 2 to the power of 3.
+    // std::cout << "pow(2,3), otherwise, 2 to the power of 3 is: " << chapter_eight::z << "\n";
+    // // sqrt()
+    // chapter_eight::z = sqrt(9);
+    // std::cout << "sqrt(9), otherwise, square root of 9 is: " << chapter_eight::z << "\n";
+    // //abs = how far a number is away from zero. 
+    // chapter_eight::z = abs(-33); // if a negative number is placed in here, it returns the positive
+    // std::cout << "abs(-33), otherwise, absolute value of -33 is: " << chapter_eight::z << "\n";
+    // //round() 
+    // chapter_eight::z = round(-3.55); // if a negative number is placed in here, it returns the positive
+    // std::cout << "round(-3.55), otherwise, rounded value of -3.55 is: " << chapter_eight::z << "\n";
+    // //round() 
+    // chapter_eight::z = round(-3.55); // if a negative number is placed in here, it returns the positive
+    // std::cout << "round(-3.55), otherwise, rounded value of -3.55 is: " << chapter_eight::z << "\n";
+    // //ceil() 
+    // chapter_eight::z = ceil(2.2); // rounds up to nearest whole number
+    // std::cout << "ceil(2.2) is " << chapter_eight::z << "\n";
+    // //floor()
+    // chapter_eight::z = floor(2.8); // rounds up to nearest whole number
+    // std::cout << "floor(2.8) is " << chapter_eight::z << "\n";
+
+    // CHAPTER 10: 
+
     return 0;
 }
