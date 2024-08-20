@@ -640,22 +640,41 @@ int main(){
     //     std::cout << "\n";
     // }
     // practice program: Print out a rectangle made of asci characters with the user specifying the dimensions.
-    int height;
-    int width;
-    char symbol;
-    std::cout << "Enter a height: ";
-    std::cin >> height;
-    std::cout << "Enter a width: ";
-    std::cin >> width;
-    std::cout << "Enter a symbol: ";
-    std::cin >> symbol;
+    // int height;
+    // int width;
+    // char symbol;
+    // std::cout << "Enter a height: ";
+    // std::cin >> height;
+    // std::cout << "Enter a width: ";
+    // std::cin >> width;
+    // std::cout << "Enter a symbol: ";
+    // std::cin >> symbol;
+    // for (int i = 1; i <= height; i++){
+    //     for( int j =1; j <= width; j++){
+    //     std::cout << symbol << " ";
+    //     }
+    //     std::cout << "\n";
+    // }
 
-    for (int i = 1; i <= height; i++){
-        for( int j =1; j <= width; j++){
-        std::cout << symbol << " ";
-        }
-        std::cout << "\n";
-    }
+
+
+    //CHAPTER 23: Random number generator.
+    /*          
+        For clarity, these are pseduo-random = NOT truely random (but close)
+        This would work perfect for rolling dice for a game.
+    */
+    srand(time(NULL)); // srand() is the random number generator and it needs a seed.
+    //                    Programmers tyically use the current calendar time as a seed shown as time(NULL) 
+    //int num = rand(); //using the rand() function, a number between 0 and 32767 will be generated.
+    //                  What if we don't need a number that large? We can use the modulus operator aka %
+    //int num = rand() % 6; //modulus gives us the remainder a division, whatever number 
+    // 
+    int num1 = 1 + (rand() % 6); //technically, as the range was between 0 - 5, we add 1 to make it 1 - 6.
+    int num2 = 1 + (rand() % 6);
+    int num3 = 1 + (rand() % 6);
+    std::cout << num1 << "\n";
+    std::cout << num2 << "\n";
+    std::cout << num3 << "\n";
 
 
 
