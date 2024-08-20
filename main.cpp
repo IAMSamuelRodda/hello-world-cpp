@@ -14,6 +14,9 @@ typedef std::vector<std::pair<std::string, int>> t_pairlist; // This gives the c
 typedef std::string t_text;
 typedef int t_number;
 
+// FUNCTION DECLARATIONS!
+// So long as you declare before you use a function, you can define it after you use it.
+void happyBirthday (std::string name, int age);
 
 
 // COURSE NAMESPACES.
@@ -683,70 +686,89 @@ int main(){
     /*          
         Combining Random number generator with a switch.
     */
-    // srand(time(NULL)); //initialising the random number's seed.
+    // // srand(time(NULL)); //initialising the random number's seed.
 
-    // int num = 1 + (rand() % 6); 
-    // std::cout << "You rolled a " << num << "\n";
-    // switch (num){
-    //     case 1: 
-    //         std::cout << "You found a sword!";
-    //         break;
-    //     case 2:
-    //         std::cout << "IT'S A TRAP!";
-    //         break;
-    //     case 3:
-    //         std::cout << "You found a potato.";
-    //         break;
-    //     default:
-    //         std::cout << "Nothing happened.";
-    //         break;
-    // }
+    // // int num = 1 + (rand() % 6); 
+    // // std::cout << "You rolled a " << num << "\n";
+    // // switch (num){
+    // //     case 1: 
+    // //         std::cout << "You found a sword!";
+    // //         break;
+    // //     case 2:
+    // //         std::cout << "IT'S A TRAP!";
+    // //         break;
+    // //     case 3:
+    // //         std::cout << "You found a potato.";
+    // //         break;
+    // //     default:
+    // //         std::cout << "Nothing happened.";
+    // //         break;
+    // // }
     
-    //CHAPTER 25: Number guessing game.
-    // We will need to record the users attempt
-    // We will need to count the number of attempts
-    // We will need to compare the final result.
-    // Start from the ideal solution and work back.
-    //
-    // INITIALISING THE VARIABLES
-    char playAgain;
-    int userGuess;
-    int secretNumber;
-    int attemptNumber;
-    srand(time(NULL)); //initialises the random number generator.
-    //
-    // THE GAME.
-    do 
-    {
-        attemptNumber = 0;
-        secretNumber = rand() % 100 + 1; // generates a new secret number.
-        do 
-        {
-            std::cout << "Guess a number between 1 and 100: ";
-            std::cin >> userGuess;
-            attemptNumber++; // this is the same as: attemptNumber = attemptNumber + 1;
-            if (userGuess > secretNumber)
-            {
-                std::cout << "Too high! Try again.\n";
-            }
-            else if (userGuess < secretNumber)
-            {
-                std::cout << "Too low. Try again.\n";
-            }
-        } while (userGuess !=  secretNumber);
-        std::cout << "\nYou got it right in " << attemptNumber << " guesses! Legendary move. \n\n";
-        std::cout << "Do you want to play again (Y/N)? ";
-        std::cin >> playAgain;
-    } while (playAgain == 'Y' || playAgain == 'y');
+    // //CHAPTER 25: Number guessing game.
+    // // We will need to record the users attempt
+    // // We will need to count the number of attempts
+    // // We will need to compare the final result.
+    // // Start from the ideal solution and work back.
+    // //
+    // // INITIALISING THE VARIABLES
+    // char playAgain;
+    // int userGuess;
+    // int secretNumber;
+    // int attemptNumber;
+    // srand(time(NULL)); //initialises the random number generator.
+    // //
+    // // THE GAME.
+    // do 
+    // {
+    //     attemptNumber = 0;
+    //     secretNumber = rand() % 100 + 1; // generates a new secret number.
+    //     do 
+    //     {
+    //         std::cout << "Guess a number between 1 and 100: ";
+    //         std::cin >> userGuess;
+    //         attemptNumber++; // this is the same as: attemptNumber = attemptNumber + 1;
+    //         if (userGuess > secretNumber)
+    //         {
+    //             std::cout << "Too high! Try again.\n";
+    //         }
+    //         else if (userGuess < secretNumber)
+    //         {
+    //             std::cout << "Too low. Try again.\n";
+    //         }
+    //     } while (userGuess !=  secretNumber);
+    //     std::cout << "\nYou got it right in " << attemptNumber << " guesses! Legendary move. \n\n";
+    //     std::cout << "Do you want to play again (Y/N)? ";
+    //     std::cin >> playAgain;
+    // } while (playAgain == 'Y' || playAgain == 'y');
 
-    std::cout << "Thanks for playing my game!";
+    // std::cout << "Thanks for playing my game!";
 
     
 
+    //CHAPTER 26: function = block of reusable code. https://youtu.be/-TkoO8Z07hI?si=2y7cuoEOdPoxltsy&t=7624 
+    
+    std::string name = "CHOUTZ";
+    int age = 33;
 
+    happyBirthday(name, age); //when you send data over to another function, that is called an Argument.
 
     // THE END
-    std::cout << "\n------------ PROGRAM ENDED ------------\n";
+    std::cout << "\n------------ PROGRAM ENDED ------------";
     return 0;
 }
+
+void happyBirthday (std::string name, int age) // WARNING: Functions cannot see what is going on inside of each other.
+//                                                We need to tell the function to expect an argument and data type.
+//                                                As we have a Declaration at the top of this code, we will need to
+//                                                add this information there too; this this case (std::string name).
+//                                                This is called function Parameters.
+{
+    std::cout << "Happy birthday to you.\n";
+    std::cout << "Happy birthday to you!\n";
+    std::cout << "Happy birthday dear " << name << "\n";
+    std::cout << "Happy birthday to you!\n\n";
+    std::cout << "You are "<< age << " years old!\n\n";
+}
+// NOTE: If you think you are going to use a block of code more than once, put it inside a function and simple call it!
 
