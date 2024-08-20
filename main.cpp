@@ -17,6 +17,10 @@ typedef int t_number;
 // FUNCTION DECLARATIONS!
 // So long as you declare before you use a function, you can define it after you use it.
 void happyBirthday (std::string name, int age);
+double square(double length);
+double cube(double length);
+std::string concatStrings(std::string string1, std::string string2);
+
 
 
 // COURSE NAMESPACES.
@@ -747,28 +751,69 @@ int main(){
     
 
     //CHAPTER 26: function = block of reusable code. https://youtu.be/-TkoO8Z07hI?si=2y7cuoEOdPoxltsy&t=7624 
-    
-    std::string name = "CHOUTZ";
-    int age = 33;
+    //
+    // std::string name = "CHOUTZ";
+    // int age = 33;
+    //
+    // happyBirthday(name, age); //when you send data over to another function, that is called an Argument.
 
-    happyBirthday(name, age); //when you send data over to another function, that is called an Argument.
+
+
+    //CHAPTER 27: return = return a value back to the spot where you called to the encompassing function.
+    //                     The return keyword is commonly found at the end of a function.
+    // double length = 4;
+    
+    // std::cout << "Area is equal to "<< square(length) << " square metres\n";
+    // std::cout << "Volume is equal to "<< cube(length) << " square metres\n";
+    std::string firstName;
+    std::string lastName;
+    std::cout << "Please enter your first name: ";
+    std::getline(std::cin, firstName);
+    std::cout << "Please enter your last name: ";
+    std::getline(std::cin, lastName);
+    std::cout << "Hello, " << concatStrings(firstName,lastName) << "\n";
+
+
+
 
     // THE END
     std::cout << "\n------------ PROGRAM ENDED ------------";
     return 0;
 }
 
-void happyBirthday (std::string name, int age) // WARNING: Functions cannot see what is going on inside of each other.
-//                                                We need to tell the function to expect an argument and data type.
-//                                                As we have a Declaration at the top of this code, we will need to
-//                                                add this information there too; this this case (std::string name).
-//                                                This is called function Parameters.
+
+// FUNCTION DEFENITIONS
+// Refer to CHAPTER 27
+//
+double square(double length)
 {
-    std::cout << "Happy birthday to you.\n";
-    std::cout << "Happy birthday to you!\n";
-    std::cout << "Happy birthday dear " << name << "\n";
-    std::cout << "Happy birthday to you!\n\n";
-    std::cout << "You are "<< age << " years old!\n\n";
+    double result = length*length;
+    return result; //if we are returning a value, we need to change the initial keyword 'void' to the data type
+    //               that we are returning, in this case, 'double'.
 }
-// NOTE: If you think you are going to use a block of code more than once, put it inside a function and simple call it!
+double cube(double length)
+{
+    return length*length*length; //this is also a valid efficent way of writing these return functions on one line.
+}
+// Challenge: Collect a users first name, last name, then use a function that combines these to form Full name string.
+std::string concatStrings(std::string string1, std::string string2)
+{
+    return string1 + " " + string1;
+}
+
+// Refer to CHAPTER 26
+//
+// void happyBirthday (std::string name, int age) // WARNING: Functions cannot see what is going on inside of each other.
+// //                                                We need to tell the function to expect an argument and data type.
+// //                                                As we have a Declaration at the top of this code, we will need to
+// //                                                add this information there too; this this case (std::string name).
+// //                                                This is called function Parameters.
+// {
+//     std::cout << "Happy birthday to you.\n";
+//     std::cout << "Happy birthday to you!\n";
+//     std::cout << "Happy birthday dear " << name << "\n";
+//     std::cout << "Happy birthday to you!\n\n";
+//     std::cout << "You are "<< age << " years old!\n\n";
+// }
+// // NOTE: If you think you are going to use a block of code more than once, put it inside a function and simple call it!
 
