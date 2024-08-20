@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <cmath>
+#include <ctime>
 //#include <constants.cpp> // ask simon why adding this didn't work?
 typedef std::vector<std::pair<std::string, int>> t_pairlist; // This gives the complex type 
 //                                                              definition a simple alias to call it by. 
@@ -51,6 +52,11 @@ namespace chapter_20{
     int i;
     int countdown;
 }
+namespace chapter_21{
+    int index;
+    int i;
+}
+
 //using namespace std; //Avoid doing this!!! There are many deeper datatypes inside std::,
 //                       thus, it is very likely that a conflict will occur.
 
@@ -593,10 +599,63 @@ int main(){
     // }
     // std::cout << "Happy New Year!\n";
     //
-    for (chapter_20::index = 10; chapter_20::index > 0 ; chapter_20::index--){ // A better countdown!!
-        std::cout << chapter_20::index << "\n";
+    // for (chapter_20::index = 10; chapter_20::index > 0 ; chapter_20::index--){ // A better countdown!!
+    //     std::cout << chapter_20::index << "\n";
+    // }
+    // std::cout << "Happy New Year!\n";
+
+
+
+    //CHAPTER 21: break; and continue; 
+    //            break = breaks out of a loop.
+    //            continue = skips current iteration in the loop.
+    //
+    // Let's skip the number 13.
+    // for(chapter_21::i =1; chapter_21::i <= 20; chapter_21::i++){
+    //     if(chapter_21::i == 13){
+    //         continue; // if we used break here, it would break out of the loop and finish at 12.
+    //     }
+    //     std::cout << chapter_21::i << "\n";
+    // }
+
+
+
+    //CHAPTER 22: Nested loops = a loop that is inside another loop.
+    /*          
+            loop(){
+                loop(){
+
+                }
+            }
+    */
+    // Let's start with the inner loop. We are counting up to 10.
+    // for( int i =1; i <= 10; i++){
+    //     std::cout << i << " "; // 
+    // }
+    // Now, let's make the outer loop. We will need to update the index on the inner to j. This is convension.
+    // for (int i = 1; i <= 3; i++){
+    //     for( int j =1; j <= 10; j++){
+    //     std::cout << j << " ";
+    //     }
+    //     std::cout << "\n";
+    // }
+    // practice program: Print out a rectangle made of asci characters with the user specifying the dimensions.
+    int height;
+    int width;
+    char symbol;
+    std::cout << "Enter a height: ";
+    std::cin >> height;
+    std::cout << "Enter a width: ";
+    std::cin >> width;
+    std::cout << "Enter a symbol: ";
+    std::cin >> symbol;
+
+    for (int i = 1; i <= height; i++){
+        for( int j =1; j <= width; j++){
+        std::cout << symbol << " ";
+        }
+        std::cout << "\n";
     }
-    std::cout << "Happy New Year!\n";
 
 
 
