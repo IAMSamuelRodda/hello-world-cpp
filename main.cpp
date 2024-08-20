@@ -63,45 +63,45 @@ namespace chapter_21{
 //CHAPTER 2: Variables and Data Types
 int main(){
     std::cout << "~~~~~~~~~~~ PROGRAM STARTED ~~~~~~~~~~~\n\n";
-    std::string z; //deceleration.
-    z = " Mice."; //assignment.
-    int x; //deceleration.
-    x = 5; //assignment.
-    int y = 6; //deceleration and assignment.
-    //std::cout << z << "\n"; // "\n" means a new line in the output
-    //std::cout << x << "\n";
-    //std::cout << y << "\n";
-    //std::cout << y+x<< "\n";
-    //
-    //Integer (Whole Number)
-    int age = 30;
-    int year = 2024;
-    int days = 7.5; //this will be trunated aka. the .5 cut off the number.
-    //std::cout << days << "\n";
-    //
-    //Double (number including a decimal).
-    double price = 10.99;       
-    double gpa = 5.35;
-    double temperature = 35.4;
-    //std::cout << price << "\n";
-    //
-    //Single character
-    char grade = 'A'; // you must use single '' quotes for this one.
-    char initial = 'SPR'; // this will cause an overflow and only display the last character,
-    //                       aka the 'R'.
-    char currancy = '$';
-    //std::cout << initial << "\n";
-    //
-    //Boolean (true or false). It is applicable to anything that has two states.
-    bool student = true; //think a swtich 
-    bool power = false;
-    bool sale = true;
-    //
-    //Strings (objects that represents a sequences of text)
-    std::string name = "Samuel";
-    std::string day = "Wednesday";
-    std::string food = "I like pizza";
-    std::string address = "14 Excited Lane, Southport QLD";
+    // std::string z; //deceleration.
+    // z = " Mice."; //assignment.
+    // int x; //deceleration.
+    // x = 5; //assignment.
+    // int y = 6; //deceleration and assignment.
+    // //std::cout << z << "\n"; // "\n" means a new line in the output
+    // //std::cout << x << "\n";
+    // //std::cout << y << "\n";
+    // //std::cout << y+x<< "\n";
+    // //
+    // //Integer (Whole Number)
+    // int age = 30;
+    // int year = 2024;
+    // int days = 7.5; //this will be trunated aka. the .5 cut off the number.
+    // //std::cout << days << "\n";
+    // //
+    // //Double (number including a decimal).
+    // double price = 10.99;       
+    // double gpa = 5.35;
+    // double temperature = 35.4;
+    // //std::cout << price << "\n";
+    // //
+    // //Single character
+    // char grade = 'A'; // you must use single '' quotes for this one.
+    // char initial = 'SPR'; // this will cause an overflow and only display the last character,
+    // //                       aka the 'R'.
+    // char currancy = '$';
+    // //std::cout << initial << "\n";
+    // //
+    // //Boolean (true or false). It is applicable to anything that has two states.
+    // bool student = true; //think a swtich 
+    // bool power = false;
+    // bool sale = true;
+    // //
+    // //Strings (objects that represents a sequences of text)
+    // std::string name = "Samuel";
+    // std::string day = "Wednesday";
+    // std::string food = "I like pizza";
+    // std::string address = "14 Excited Lane, Southport QLD";
     //std::cout << name << "\n";
     //std::cout << "Hello, " << name << "." << "\n";
     //std::cout << "You are " << age << " years old." << "\n";
@@ -112,15 +112,15 @@ int main(){
     // https://youtu.be/-TkoO8Z07hI?si=oS4H_9wQ80DTkpp6&t=1461
     // The const keyword specifies that a varibales value is constant and tells the compiler to
     // not let anything change it. Effectively, "Read Only" access.
-    const double PI = 3.14159; //common naming convension for contstants is to make all of the
-    //                           letters in the name UPPERCASE.
-    const int LIGHTSPEED = 299792458;
-    const int WIDTH = 1920;
-    const int HEIGHT = 1080;
-    //PI = 420.69; // the program wont let us do this due to the const key word being used to
-    //                not let PI be changed. 
-    double radius = 10;
-    double circumference = 2 * PI * radius;
+    // const double PI = 3.14159; //common naming convension for contstants is to make all of the
+    // //                           letters in the name UPPERCASE.
+    // const int LIGHTSPEED = 299792458;
+    // const int WIDTH = 1920;
+    // const int HEIGHT = 1080;
+    // //PI = 420.69; // the program wont let us do this due to the const key word being used to
+    // //                not let PI be changed. 
+    // double radius = 10;
+    // double circumference = 2 * PI * radius;
     //std::cout << circumference << "cm" << "\n";
 
 
@@ -129,7 +129,7 @@ int main(){
     //                       projects. Each entity needs a unique name. A namespace allows for
     //                       the identically named entities as long as the namespaces are
     //                       different.
-    using namespace chapter_four_second;
+    //using namespace chapter_four_second;
     //int specialx = 0; //this would still overide the namespace value as it would be updating it.
     //int special_x = 1; //this code would cause an error! Redecleration of variable int 
     //                    special_x.
@@ -148,8 +148,8 @@ int main(){
     //                                                    the a typedef shorter name for this at
     //                                                    the start of this program, we can use
     //                                                    its shorter name instead.
-    t_pairlist pairlist;
-    t_text firstName = "CHOUTZ";
+    // t_pairlist pairlist;
+    // t_text firstName = "CHOUTZ";
     //t_number age = 33;
     //std::cout << firstName <<"\n";
     //std::cout << "Age: " << first::age <<"\n"; // Uses namespace 'first' using the 
@@ -161,8 +161,8 @@ int main(){
     //CHAPTER 6: Arithmetic Operators = return the result of a specific arithmetic operations
     //                                  such as Addition +, Subtraction -, Multiplication *,
     //                                  and Division /.
-    int students = 20;
-    int divider = 3;
+    // int students = 20;
+    // int divider = 3;
     //students = students + 1; // standard way. However there is a short hand way of writing this.
     //students+=1; // this would do the same thing.
     //students++; // If you want to add only 1 to a Variable, you can always use 
@@ -178,7 +178,7 @@ int main(){
     //students/=3; //WARNING: if you do not change the Data Type for students to double,
     //                      the remainder will get cut off aka truncated. Else, you can use 
     //                      the Modulus operator % to get the remainder of any division.
-    int remainder = students % divider; // For example, here, if student = 20, the output is 2. 
+    //int remainder = students % divider; // For example, here, if student = 20, the output is 2. 
     //                                     This is because 3 divides into 20 up to 6 times with
     //                                     a remainder of "2" left over. Only the remainder is
     //                                     returned.
@@ -195,27 +195,27 @@ int main(){
     //                              Implicit cast = Automatic.
     //                              Explicit cast = Precede a value with new data type, for
     //                              (int) 
-    // Starts here: https://youtu.be/-TkoO8Z07hI?si=UYHCTbSN6qirgnHG&t=2608
-    int my_x = 3.14;
-    //std::cout << "My x = " << my_x << ". "; // The decimal is truncated because int can only 
-    //                                         display whole numbers.
-    //
-    // Let's try a type cast scenario.
-    double my_y = (int) 4.14; // This will "Explicitly" cast this initially "double" type, aka
-    //                           decimal, as an "int" type, aka whole number.
-    //std::cout << "My y = " << my_y << "\n"; // The decimal is truncated because int can only display
-    //                                 whole numbers.
-    char char_x = 100; // What will happen here is that we will "Implicitly" cast the number 100
-    //                    as an ASCII character.
-    //std::cout << "ASCII Character of " << (int) char_x << " is " << char_x << "\n"; // ASCII table dictates that the mumber 100 answer should be the character 'd'.
-    int correct = 8;
-    int questions = 10;
+    // // Starts here: https://youtu.be/-TkoO8Z07hI?si=UYHCTbSN6qirgnHG&t=2608
+    // int my_x = 3.14;
+    // //std::cout << "My x = " << my_x << ". "; // The decimal is truncated because int can only 
+    // //                                         display whole numbers.
+    // //
+    // // Let's try a type cast scenario.
+    // double my_y = (int) 4.14; // This will "Explicitly" cast this initially "double" type, aka
+    // //                           decimal, as an "int" type, aka whole number.
+    // //std::cout << "My y = " << my_y << "\n"; // The decimal is truncated because int can only display
+    // //                                 whole numbers.
+    // char char_x = 100; // What will happen here is that we will "Implicitly" cast the number 100
+    // //                    as an ASCII character.
+    // //std::cout << "ASCII Character of " << (int) char_x << " is " << char_x << "\n"; // ASCII table dictates that the mumber 100 answer should be the character 'd'.
+    // int correct = 8;
+    // int questions = 10;
     //double score = correct/questions * 100; // this will result in a 0%. Because we are using int
     //                                         division which truncates the decimal before
     //                                         multiplying by 100.
     //
     // Let's explicitly case questions and double data type.
-    double score = correct/(double)questions * 100;
+    //double score = correct/(double)questions * 100;
     //std::cout << score << " %" << "\n";
 
 
@@ -423,7 +423,7 @@ int main(){
     //            condition ? expression1 : expression2;
     //
     // Proper example.
-    int my_grade = 75;
+    //int my_grade = 75;
     // if(grade >= 60)
     // {
     //     std::cout << "You pass!";
@@ -435,7 +435,7 @@ int main(){
     // We can replace the above example with the following.
     //my_grade >= 60 ? std::cout << "You passed!" : std::cout << "You failed!";
     //
-    bool hungry = false;
+    //bool hungry = false;
     //hungry ? std::cout << " You are hungry." : std::cout << " You are full.";
     // NOTE: there is no need to write the above as hungry == true as this is the default if 
     //       not addressed or left out as in the above example.
@@ -448,7 +448,7 @@ int main(){
     //            && = checks if two conditions are true.
     //            || = checks if at least one of the two conditions are true.
     //            !  = reverses the logical state of its operand.
-    int temp;
+    //int temp;
     //std::cout << "Enter the temperature: ";
     //std::cin >> temp;
     // if (temp > 0 && temp <30) // this if statement is only activated if BOTH conditions are true.
@@ -527,7 +527,7 @@ int main(){
     //std::cout << "Your username is : " << chapter_17::name.insert(0,"@"); // Inserts characters at position specified
     //                                                                       in string
     //std::cout << "Your username is : " << chapter_17::name.find(" "); // This will give the position of the first white space.
-    chapter_17::name.erase(0,5); // this erases characters from a string. 0 is the starting index. 3 is the number of
+    //chapter_17::name.erase(0,5); // this erases characters from a string. 0 is the starting index. 3 is the number of
     //                             characters erased, or more accurately, the ending index (not inclusive).
     // More info here: https://cplusplus.com/reference/string/string/ 
     //std::cout << "Your name is : " << chapter_17::name; 
@@ -663,18 +663,45 @@ int main(){
         For clarity, these are pseduo-random = NOT truely random (but close)
         This would work perfect for rolling dice for a game.
     */
-    srand(time(NULL)); // srand() is the random number generator and it needs a seed.
+    //srand(time(NULL)); // srand() is the random number generator and it needs a seed.
     //                    Programmers tyically use the current calendar time as a seed shown as time(NULL) 
     //int num = rand(); //using the rand() function, a number between 0 and 32767 will be generated.
     //                  What if we don't need a number that large? We can use the modulus operator aka %
     //int num = rand() % 6; //modulus gives us the remainder a division, whatever number 
     // 
-    int num1 = 1 + (rand() % 6); //technically, as the range was between 0 - 5, we add 1 to make it 1 - 6.
-    int num2 = 1 + (rand() % 6);
-    int num3 = 1 + (rand() % 6);
-    std::cout << num1 << "\n";
-    std::cout << num2 << "\n";
-    std::cout << num3 << "\n";
+    // int num1 = 1 + (rand() % 6); //technically, as the range was between 0 - 5, we add 1 to make
+    // //                             it 1 - 6.
+    // int num2 = 1 + (rand() % 6);
+    // int num3 = 1 + (rand() % 6);
+    // std::cout << num1 << "\n";
+    // std::cout << num2 << "\n";
+    // std::cout << num3 << "\n";
+
+
+
+    //CHAPTER 24: Random event generator.
+    /*          
+        Combining Random number generator with a switch.
+    */
+    srand(time(NULL)); //initialising the random number's seed.
+
+    int num = 1 + (rand() % 6); 
+    std::cout << "You rolled a " << num << "\n";
+    switch (num){
+        case 1: 
+            std::cout << "You found a sword!";
+            break;
+        case 2:
+            std::cout << "IT'S A TRAP!";
+            break;
+        case 3:
+            std::cout << "You found a potato.";
+            break;
+        default:
+            std::cout << "Nothing happened.";
+            break;
+    }
+    
 
 
 
