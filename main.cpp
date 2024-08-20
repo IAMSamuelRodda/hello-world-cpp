@@ -1,4 +1,5 @@
 //CHAPTER 1: Setup in VS Code and Installation
+// Library inclusions
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,51 +13,50 @@ typedef std::vector<std::pair<std::string, int>> t_pairlist; // This gives the c
 typedef std::string t_text;
 typedef int t_number;
 
-// NAMESPACES SET FOR CHAPTER 4.
+
+
+// COURSE NAMESPACES.
 namespace chapter_4_first {
     int specialx = 5;
     int age = 33;
     std::string name;
 }
-
 namespace chapter_four_second {
     int specialx = 3;
 }
-
 namespace chapter_eight {
     double x = 3;
     double y = 4;
     double z;
 }
-
 namespace chapter_ten {
     double a;
     double b;
     double c;
 }
-
 namespace chapter_eleven {
     int age;
 }
-
 namespace chapter_17 {
     std::string name;
 }
-
 namespace chapter_18{
     std::string name;
 }
-
 namespace chapter_19{
     int number;
 }
-
+namespace chapter_20{
+    int index;
+    int i;
+    int countdown;
+}
 //using namespace std; //Avoid doing this!!! There are many deeper datatypes inside std::,
 //                       thus, it is very likely that a conflict will occur.
 
 //CHAPTER 2: Variables and Data Types
 int main(){
-    std::cout << "Hello World!" << "\n";
+    std::cout << "~~~~~~~~~~~ PROGRAM STARTED ~~~~~~~~~~~\n\n";
     std::string z; //deceleration.
     z = " Mice."; //assignment.
     int x; //deceleration.
@@ -66,32 +66,31 @@ int main(){
     //std::cout << x << "\n";
     //std::cout << y << "\n";
     //std::cout << y+x<< "\n";
-
-    //CHAPTER 2: Variables and Data Types
+    //
     //Integer (Whole Number)
     int age = 30;
     int year = 2024;
     int days = 7.5; //this will be trunated aka. the .5 cut off the number.
     //std::cout << days << "\n";
-
+    //
     //Double (number including a decimal).
     double price = 10.99;       
     double gpa = 5.35;
     double temperature = 35.4;
     //std::cout << price << "\n";
-
+    //
     //Single character
     char grade = 'A'; // you must use single '' quotes for this one.
     char initial = 'SPR'; // this will cause an overflow and only display the last character,
     //                       aka the 'R'.
     char currancy = '$';
     //std::cout << initial << "\n";
-
+    //
     //Boolean (true or false). It is applicable to anything that has two states.
     bool student = true; //think a swtich 
     bool power = false;
     bool sale = true;
-
+    //
     //Strings (objects that represents a sequences of text)
     std::string name = "Samuel";
     std::string day = "Wednesday";
@@ -100,6 +99,7 @@ int main(){
     //std::cout << name << "\n";
     //std::cout << "Hello, " << name << "." << "\n";
     //std::cout << "You are " << age << " years old." << "\n";
+    
     
 
     // CHAPTER 3: Discussing the Constant key word.
@@ -118,6 +118,7 @@ int main(){
     //std::cout << circumference << "cm" << "\n";
 
 
+
     //CHAPTER 4: Namespace = provideds a solution for preventing name conflicts in larger 
     //                       projects. Each entity needs a unique name. A namespace allows for
     //                       the identically named entities as long as the namespaces are
@@ -133,6 +134,7 @@ int main(){
     // it here to Prefix the namepsace to the special_x variable.
 
 
+
     //CHAPTER 5: typedef = reserved keyword used to create an additional name (alias) for
     //                     another data type aka. new identifiers for an existing
     //                     type. It helps with readability and reduces typos.
@@ -141,13 +143,13 @@ int main(){
     //                                                    the start of this program, we can use
     //                                                    its shorter name instead.
     t_pairlist pairlist;
-
     t_text firstName = "CHOUTZ";
     //t_number age = 33;
     //std::cout << firstName <<"\n";
     //std::cout << "Age: " << first::age <<"\n"; // Uses namespace 'first' using the 
     //                                            Scope Resolution Operator, aka the 
     //                                            double colon '::'.
+
 
 
     //CHAPTER 6: Arithmetic Operators = return the result of a specific arithmetic operations
@@ -157,16 +159,13 @@ int main(){
     int divider = 3;
     //students = students + 1; // standard way. However there is a short hand way of writing this.
     //students+=1; // this would do the same thing.
-    
     //students++; // If you want to add only 1 to a Variable, you can always use 
     //             the Incrimant Operator ++. This adds the value of 1 to the variable a
     //             and is the preferred way to add 1 if that is all you are adding.
     //            s You tend to see this in a lot of loops which are covered later.
-
     //students = students - 1;
     //students-=1;
     //students--;
-
     //students = students *2;
     //students*=2;
     //students = students / 3;
@@ -181,6 +180,7 @@ int main(){
     //std::cout << " with remainder of " << remainder << "\n";
     // REMEMBER:: Order of operation is: Resolve Parenthesis first, then Multiplaction and
     //            Division, then Addition and Subtraction.
+
 
 
     // CHAPTER 7: Type Conversion = conversion of a value from one data type to another. There 
@@ -202,7 +202,6 @@ int main(){
     char char_x = 100; // What will happen here is that we will "Implicitly" cast the number 100
     //                    as an ASCII character.
     //std::cout << "ASCII Character of " << (int) char_x << " is " << char_x << "\n"; // ASCII table dictates that the mumber 100 answer should be the character 'd'.
-
     int correct = 8;
     int questions = 10;
     //double score = correct/questions * 100; // this will result in a 0%. Because we are using int
@@ -214,10 +213,10 @@ int main(){
     //std::cout << score << " %" << "\n";
 
 
+
     //CHAPTER 8: User input = cin >> for Character Input as opposed to cout << for
     //                        Character Output. cout << is Insertion Operator. 
     //                        cin >> is Extraction operator.
-
     //std::cout << "What is your age?: ";
     //std::cin >> chapter_4_first::age;
     //std::cout << "What is your full name?: "; // WARNING: if we need to read a string that may
@@ -233,7 +232,6 @@ int main(){
     //                                                 eliminate any White Space or newline
     //                                                 characters before any user input.
     //std::cout << "Hello, " << chapter_4_first::name << "\n";
-
     //std::cout << "You are " << chapter_4_first::age << " years old." << "\n";
 
 
@@ -269,6 +267,8 @@ int main(){
     // chapter_eight::z = floor(2.8); // rounds up to nearest whole number
     // std::cout << "floor(2.8) is " << chapter_eight::z << "\n";
 
+
+
     // CHAPTER 10: Practice Program to find the hypotinus of a triangle
     // Formula is c = sqrt(a^2 + b^2)
     // std::cout <<  "What is the Opposite side length? ";
@@ -278,10 +278,10 @@ int main(){
     // std::cout << "The hypotenuse is : " << hypot(chapter_ten::b,chapter_ten::a); // https://cplusplus.com/reference/cmath/hypot/
 
 
+
     // CHAPTER 11: if statements = do something if condition is true. If not, then don't do it.
     // std::cout << "Enter your age: ";
     // std::cin >> chapter_eleven::age;
-    
     // if (chapter_eleven::age >= 18)
     // {
     //     std::cout << "Welcome to the site!";
@@ -306,7 +306,6 @@ int main(){
     //     std::cout << "You are not old enough to enter!";
     // }
 
-    // return 0;
 
 
     // CHAPTER 12: Switch = alterative to using many "else of" statements. It compares one value
@@ -373,6 +372,7 @@ int main(){
     // }
 
 
+
     //CHAPTER 13: Calculator program
     // char op;
     // double num1;
@@ -385,7 +385,6 @@ int main(){
     // std::cin >> op;
     // std::cout << "Enter your second number: ";
     // std::cin >> num2;
-
     // switch (op) // We use op here as we are examining cases of different operators.
     // {
     //     case '+': //make sure the operator sign is inside single quotes '' as it needs to be 
@@ -411,6 +410,7 @@ int main(){
     // std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
 
 
+
     //CHAPTER 14: Ternary Operator, aka ?:
     //            This operator is a replacement to using an if/else statement.
     //            For example,
@@ -428,7 +428,7 @@ int main(){
     // }
     // We can replace the above example with the following.
     //my_grade >= 60 ? std::cout << "You passed!" : std::cout << "You failed!";
-
+    //
     bool hungry = false;
     //hungry ? std::cout << " You are hungry." : std::cout << " You are full.";
     // NOTE: there is no need to write the above as hungry == true as this is the default if 
@@ -458,11 +458,11 @@ int main(){
     //     std::cout << "The temperatures is bad!";   
     // }
     // else 
-
+    //
     // {
     //     std::cout << "The temperatures is good!";   
     // }
-    
+    //
     // bool sunny;
     // std::cout << "Is it sunny? (yes = 1, no = 0): "; // it seems you cannot give it true or false. 
     // std::cin >> sunny;
@@ -485,6 +485,7 @@ int main(){
     // I skipped this lesson / chapter
 
 
+
     // CHAPTER 17: Useful string methods in C++.
     // see chapter_17 namespace at the top of this file for the std::string name; declaration.
     //std::cout << "Enter your name: ";
@@ -497,8 +498,8 @@ int main(){
     // {
     //     std::cout << "Welcome, " << chapter_17::name;
     // }
-
-
+    //
+    //
     // if(chapter_17::name.empty()) //checks to see if string is empty and returns a bool.
     // {
     //     std::cout << "You didn't enter your name. :(";
@@ -507,11 +508,11 @@ int main(){
     // {
     //     std::cout << "Welcome, " << chapter_17::name;
     // }
-
+    //
     // chapter_17::name.clear();
     // std::cout << "Hello, " << chapter_17::name; // You won't have a name as the value of
     // //                                             name is cleared.
-
+    //
     // chapter_17::name.append("@gmail.com"); // this adds aka "connects" this new text to the string
     // std::cout << "Your usename is " << chapter_17::name; 
     //chapter_17::name.at(0); // this returns the character at position 0 aka the first character
@@ -524,6 +525,7 @@ int main(){
     //                             characters erased, or more accurately, the ending index (not inclusive).
     // More info here: https://cplusplus.com/reference/string/string/ 
     //std::cout << "Your name is : " << chapter_17::name; 
+
 
 
     // CHAPTER 18: While loops = alternative to if statements that potentially repeat code an infinite amount of times
@@ -539,6 +541,8 @@ int main(){
     // } //This returns no name!!! Use a while function instead; see below.
     // std::cout << "Hello, " << chapter_18::name;
 
+
+
     // CHAPTER 19: do while loops = do some block of code first, THEN repeat again if condition is true.
     // Here is an example that uses a while loop which I can then show would be better with a do while loop.
     // while (chapter_19::number < 0){ // we have declared our number in chapter_19 namespace int number; it is 0.
@@ -546,11 +550,9 @@ int main(){
     //     std::cout << "Enter a positive number: ";
     //     std::cin >> chapter_19::number;
     // }
-
     // // We could do this: it is a bad solution as it duplicates code. It is not DRY.
     // std::cout << "Enter a positive number: ";
     // std::cin >> chapter_19::number;
-
     // while (chapter_19::number < 0){
     //     std::cout << "Enter a positive number: ";
     //     std::cin >> chapter_19::number;
@@ -558,16 +560,48 @@ int main(){
     //
     //
     // Better to use a do while loop:
-    do 
-    { // we have declared our number in chapter_19 namespace int number; it is 0.
-    //                                 When we reach the while loop, the loops is by passed as it is 0 already!
-        std::cout << "Enter a positive number: ";
-        std::cin >> chapter_19::number;
-    } 
-    while (chapter_19::number < 0);
+    // do 
+    // { // we have declared our number in chapter_19 namespace int number; it is 0.
+    // //                                 When we reach the while loop, the loops is by passed as it is 0 already!
+    //     std::cout << "Enter a positive number: ";
+    //     std::cin >> chapter_19::number;
+    // } 
+    // while (chapter_19::number < 0);
+    // std::cout << "The number is : " << chapter_19::number;
 
-    std::cout << "The number is : " << chapter_19::number;
+
+
+    // CHAPTER 20: for loops = loop that iterates a fixed number of times
+    // for (chapter_20::index = 1; chapter_20::index <=5; chapter_20::index++){ // Many people replace 'index' with 'i'
+    //     std::cout << "Happy New Year!\n";
+    // }
+    // chapter_20::countdown = 11;
+    // for (chapter_20::index = 1; chapter_20::index <=10; chapter_20::index++){ // A count down!
+    //     std::cout << chapter_20::countdown - chapter_20::index << "\n";
+    // }
+    // std::cout << "Happy New Year!\n";
+    //
+    // chapter_20::countdown = 10;
+    // for (chapter_20::index = 0; chapter_20::index < 10; chapter_20::index+=2){ // A count down by 2!
+    //     std::cout << chapter_20::countdown - chapter_20::index << "\n";
+    // }
+    // std::cout << "Happy New Year!\n";
+    //
+    // chapter_20::countdown = 10;
+    // for (chapter_20::index = 0; chapter_20::index < chapter_20::countdown; chapter_20::index+=2){ // A count down by 2!
+    //     std::cout << chapter_20::countdown - chapter_20::index << "\n";
+    // }
+    // std::cout << "Happy New Year!\n";
+    //
+    for (chapter_20::index = 10; chapter_20::index > 0 ; chapter_20::index--){ // A better countdown!!
+        std::cout << chapter_20::index << "\n";
+    }
+    std::cout << "Happy New Year!\n";
+
+
+
+    // THE END
+    std::cout << "\n------------ PROGRAM ENDED ------------\n";
     return 0;
-
 }
 
