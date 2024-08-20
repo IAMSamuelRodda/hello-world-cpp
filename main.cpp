@@ -683,24 +683,64 @@ int main(){
     /*          
         Combining Random number generator with a switch.
     */
-    srand(time(NULL)); //initialising the random number's seed.
+    // srand(time(NULL)); //initialising the random number's seed.
 
-    int num = 1 + (rand() % 6); 
-    std::cout << "You rolled a " << num << "\n";
-    switch (num){
-        case 1: 
-            std::cout << "You found a sword!";
-            break;
-        case 2:
-            std::cout << "IT'S A TRAP!";
-            break;
-        case 3:
-            std::cout << "You found a potato.";
-            break;
-        default:
-            std::cout << "Nothing happened.";
-            break;
-    }
+    // int num = 1 + (rand() % 6); 
+    // std::cout << "You rolled a " << num << "\n";
+    // switch (num){
+    //     case 1: 
+    //         std::cout << "You found a sword!";
+    //         break;
+    //     case 2:
+    //         std::cout << "IT'S A TRAP!";
+    //         break;
+    //     case 3:
+    //         std::cout << "You found a potato.";
+    //         break;
+    //     default:
+    //         std::cout << "Nothing happened.";
+    //         break;
+    // }
+    
+    //CHAPTER 25: Number guessing game.
+    // We will need to record the users attempt
+    // We will need to count the number of attempts
+    // We will need to compare the final result.
+    // Start from the ideal solution and work back.
+    //
+    // INITIALISING THE VARIABLES
+    char playAgain;
+    int userGuess;
+    int secretNumber;
+    int attemptNumber;
+    srand(time(NULL)); //initialises the random number generator.
+    //
+    // THE GAME.
+    do 
+    {
+        attemptNumber = 0;
+        secretNumber = rand() % 100 + 1; // generates a new secret number.
+        do 
+        {
+            std::cout << "Guess a number between 1 and 100: ";
+            std::cin >> userGuess;
+            attemptNumber++; // this is the same as: attemptNumber = attemptNumber + 1;
+            if (userGuess > secretNumber)
+            {
+                std::cout << "Too high! Try again.\n";
+            }
+            else if (userGuess < secretNumber)
+            {
+                std::cout << "Too low. Try again.\n";
+            }
+        } while (userGuess !=  secretNumber);
+        std::cout << "\nYou got it right in " << attemptNumber << " guesses! Legendary move. \n\n";
+        std::cout << "Do you want to play again (Y/N)? ";
+        std::cin >> playAgain;
+    } while (playAgain == 'Y' || playAgain == 'y');
+
+    std::cout << "Thanks for playing my game!";
+
     
 
 
