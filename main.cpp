@@ -1051,9 +1051,10 @@ int main(){
     //                                      They are good as they can represent a grid of data
     //                                      with rows and columns.
 
-    std::string cars[][4] = {{"Mustang","Escape","F-250"},
+    std::string cars[][3] = {{"Mustang","Escape","F-250"},
                              {"Corvette","Equinox","Silverado"},
-                             {"Challenger","Durango","Ram 1500"}};
+                             {"Challenger","Durango","Ram 1500"}}; // This is technically, 
+                             //                                      nested arrays.
     // NOTE: If you are initialising your Array right away, you don't need a row size, but
     //       you do need a column size always.
     //       Organise as if they are a matrix.
@@ -1066,9 +1067,17 @@ int main(){
     // std::cout << cars[2][0] << " ";
     // std::cout << cars[2][1] << " ";
     // std::cout << cars[2][2] << "\n";
-    int rows = sizeof(cars)/sizeof(cars[0]);
-    int columns = sizeof(cars[0])/sizeof(cars[0][0]);
-
+    std::cout << "Number of bytes in 1 of the our level Array slots: " << sizeof(cars[0]) << "\n";
+    int rows = sizeof(cars)/sizeof(cars[0]); //calculates the number of outer arrays slots.
+    //                                         The size of the whole array, divided by the size
+    //                                         of one of the outer slots = number of slots 
+    //                                         aka, number of rows. 
+    int columns = sizeof(cars[0])/sizeof(cars[0][0]); //calculates the number of inner array slots
+    //                                                  by taking the whole size of on of the inner
+    //                                                  slots and dividing it by the size of one
+    //                                                  of its elements = number of inner elements
+    //                                                  aka, number of columns.
+    
     for (int i = 0; i<rows; i++)
     {
         //std::cout << cars[i] << "\n";
