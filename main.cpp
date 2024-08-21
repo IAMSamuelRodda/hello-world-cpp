@@ -873,23 +873,40 @@ int main(){
     
     
     
-    //CHAPTER 34: Iterate over an array
-    std::string students [] = {"Sam","Choutz","Mike", "John", "Stacy"};
-    int arraySize = sizeof(students)/sizeof(std::string);
+    // //CHAPTER 34: Iterate over an array
+    // std::string students [] = {"Sam","Choutz","Mike", "John", "Stacy"};
+    // int arraySize = sizeof(students)/sizeof(std::string);
     
-    // My version.
-    int i = 0;
-    while (i < arraySize) {
-        std::cout << students[i] << "\n";
-        i++;
-    };
-    //
-    // Bro Code version. 
-    for (int i = 0; i < arraySize; i++) {
-        std::cout << students[i] << "\n";
-    };
-    // both work, his is more condensed and easy to read.
+    // // My version.
+    // int i = 0;
+    // while (i < arraySize) {
+    //     std::cout << students[i] << "\n";
+    //     i++;
+    // };
+    // //
+    // // Bro Code version. 
+    // for (int i = 0; i < arraySize; i++) {
+    //     std::cout << students[i] << "\n";
+    // };
+    // // both work, his is more condensed and easy to read.
 
+
+
+    //CHAPTER 35: for each loop
+    // foreach loop = loop that eases the traversal over an iterable data set.
+    //
+    // Here is where they can help, instead of this:
+    // std::string students [] = {"Sam","Choutz","Mike", "John", "Stacy"};
+    // for (int i = 0; i < sizeof(students)/sizeof(std::string); i++) {
+    //     std::cout << students[i] << "\n";
+    // }; 
+    //Do this: for ('Data Type' ElementName ArrayName) {}
+    // You can make up the ElementName directly in the for each loop.
+    std::string students [] = {"Sam","Choutz","Mike", "John", "Stacy"};
+    for (std::string student : students) { // student is the NAME of the Element Type.
+    //                                        students is the NAME of the Array.
+        std::cout << student << "\n";
+    }; 
 
 
 
