@@ -20,7 +20,9 @@ void happyBirthday (std::string name, int age);
 double square(double length);
 double cube(double length);
 std::string concatStrings(std::string string1, std::string string2);
-
+void bakePizza();
+void bakePizza(std::string topping1);
+void bakePizza(std::string topping1, std::string topping2);
 
 
 // COURSE NAMESPACES.
@@ -709,44 +711,44 @@ int main(){
     // //         break;
     // // }
     
-    //CHAPTER 25: Number guessing game.
-    // We will need to record the users attempt
-    // We will need to count the number of attempts
-    // We will need to compare the final result.
-    // Start from the ideal solution and work back.
-    //
-    // INITIALISING THE VARIABLES
-    char playAgain;
-    int userGuess;
-    int secretNumber;
-    int attemptNumber;
-    srand(time(NULL)); //initialises the random number generator.
-    //
-    // THE GAME.
-    do 
-    {
-        attemptNumber = 0;
-        secretNumber = rand() % 100 + 1; // generates a new secret number.
-        do 
-        {
-            std::cout << "Guess a number between 1 and 100: ";
-            std::cin >> userGuess;
-            attemptNumber++; // this is the same as: attemptNumber = attemptNumber + 1;
-            if (userGuess > secretNumber)
-            {
-                std::cout << "Too high! Try again.\n";
-            }
-            else if (userGuess < secretNumber)
-            {
-                std::cout << "Too low. Try again.\n";
-            }
-        } while (userGuess !=  secretNumber);
-        std::cout << "\nYou got it right in " << attemptNumber << " guesses! Legendary move. \n\n";
-        std::cout << "Do you want to play again (Y/N)? ";
-        std::cin >> playAgain;
-    } while (playAgain == 'Y' || playAgain == 'y');
+    // //CHAPTER 25: Number guessing game.
+    // // We will need to record the users attempt
+    // // We will need to count the number of attempts
+    // // We will need to compare the final result.
+    // // Start from the ideal solution and work back.
+    // //
+    // // INITIALISING THE VARIABLES
+    // char playAgain;
+    // int userGuess;
+    // int secretNumber;
+    // int attemptNumber;
+    // srand(time(NULL)); //initialises the random number generator.
+    // //
+    // // THE GAME.
+    // do 
+    // {
+    //     attemptNumber = 0;
+    //     secretNumber = rand() % 100 + 1; // generates a new secret number.
+    //     do 
+    //     {
+    //         std::cout << "Guess a number between 1 and 100: ";
+    //         std::cin >> userGuess;
+    //         attemptNumber++; // this is the same as: attemptNumber = attemptNumber + 1;
+    //         if (userGuess > secretNumber)
+    //         {
+    //             std::cout << "Too high! Try again.\n";
+    //         }
+    //         else if (userGuess < secretNumber)
+    //         {
+    //             std::cout << "Too low. Try again.\n";
+    //         }
+    //     } while (userGuess !=  secretNumber);
+    //     std::cout << "\nYou got it right in " << attemptNumber << " guesses! Legendary move. \n\n";
+    //     std::cout << "Do you want to play again (Y/N)? ";
+    //     std::cin >> playAgain;
+    // } while (playAgain == 'Y' || playAgain == 'y');
 
-    std::cout << "Thanks for playing my game!";
+    // std::cout << "Thanks for playing my game!";
 
     
 
@@ -777,8 +779,7 @@ int main(){
 
     //CHAPTER 28: Overloaded functions. In C++ (and many other languages) you can have different versions
     //                                  of a function.
-
-
+    bakePizza("cheese", "lamb");
 
 
     // THE END
@@ -789,11 +790,26 @@ int main(){
 
 // FUNCTION DEFENITIONS
 // Refer to CHAPTER 28
-// void bakePizza()
-// {
-//     std::cout << "Here is your Pizza!";
-// }
-
+void bakePizza()
+{
+    std::cout << "Here is your Pizza! \n";
+}
+void bakePizza(std::string topping1)
+{
+    std::cout << "Here is your "<< topping1 << " Pizza!\n"; // it is valid for functions to accept
+    //                                                        the same name, but you need a
+    //                                                        different set of perameters.
+    //
+    // NOTE: a functions name + perameters = function signature.
+}
+void bakePizza(std::string topping1, std::string topping2)
+{
+    std::cout << "Here is your "<< topping1 << " & " << topping2 << " Pizza!\n"; // it is valid for functions to accept
+    //                                                        the same name, but you need a
+    //                                                        different set of perameters.
+    //
+    // NOTE: a functions name + perameters = function signature.
+}
 
 // Refer to CHAPTER 27
 //
