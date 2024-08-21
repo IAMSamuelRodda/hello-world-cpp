@@ -28,6 +28,7 @@ void printNum();
 double getTotal(double array[], int size);
 int searchArray(int array[], int size, int element);
 int searchArray(std::string array[], int size, std::string element);
+void bubbleSort(int array[], int size);
 
 
 //GLOBAL VARIABLES
@@ -928,14 +929,31 @@ int main(){
 
 
 
-    //CHAPTER 37: Searching an array for an element.
-    // int numbers[]={1,2,3,4,5,6,7,8,9,10};
-    // int sizeNumbers = sizeof(numbers)/sizeof(numbers[0]);
+    // //CHAPTER 37: Searching an array for an element.
+    // // int numbers[]={1,2,3,4,5,6,7,8,9,10};
+    // // int sizeNumbers = sizeof(numbers)/sizeof(numbers[0]);
+    // // int index;  //the index used for the search.
+    // // int myNum; //the number the user is looking for.
+    // // std::cout << "Enter element to search for: " << "\n";
+    // // std::cin >> myNum;
+    // // index = searchArray(numbers, sizeNumbers, myNum);
+    // // if (index != -1)
+    // // {
+    // //     std::cout << "Match found at Index: " << index;
+    // // }
+    // // else
+    // // {
+    // //     std::cout << "No match found.";
+    // // }
+
+
+    // std::string food[]={"pizza", "milk", "sugar", "cookies"};
+    // int sizeFood = sizeof(food)/sizeof(food[0]);
     // int index;  //the index used for the search.
-    // int myNum; //the number the user is looking for.
+    // std::string myFood; //the number the user is looking for.
     // std::cout << "Enter element to search for: " << "\n";
-    // std::cin >> myNum;
-    // index = searchArray(numbers, sizeNumbers, myNum);
+    // std::getline(std::cin, myFood);
+    // index = searchArray(food, sizeFood, myFood);
     // if (index != -1)
     // {
     //     std::cout << "Match found at Index: " << index;
@@ -946,21 +964,41 @@ int main(){
     // }
 
 
-    std::string food[]={"pizza", "milk", "sugar", "cookies"};
-    int sizeFood = sizeof(food)/sizeof(food[0]);
-    int index;  //the index used for the search.
-    std::string myFood; //the number the user is looking for.
-    std::cout << "Enter element to search for: " << "\n";
-    std::getline(std::cin, myFood);
-    index = searchArray(food, sizeFood, myFood);
-    if (index != -1)
+
+    // //CHAPTER 38: Sort an Array using Bubble sort.
+    // int array[] = {10, 1, 9, 2, 8, 3, 7, 6, 5, 4};
+    // int size = sizeof(array)/sizeof(array[0]);
+    // bubbleSort(array,size);
+    //  for (int element : array)
+    //  {
+    //     std::cout << element << " ";
+    //  }
+
+
+
+    //CHAPTER 39: fill() = fills a range of elements with a specified value.
+    //                     Its arguments are: fill(begin address, end address, value)
+    // std::string foods[10] = {"pizza","pizza","pizza","pizza","pizza","pizza","pizza","pizza","pizza","pizza"};
+    // for(std::string element : foods)
+    // {
+    //     std::cout << element << "\n";
+    // }
+    //The above does work, but it is not very efficient. Manually initialising an Array is
+    //not pratical. fill() offers one solution.
+    //Imagine if our array was 100 elements in size!!
+    const int SIZE = 100; //REMEMBER: const variable naming convension is to use UPPERCASE.
+    std::string foods[SIZE]; //NOTE: Array's will only accept const int. 
+    fill(foods, foods+SIZE/3, "pizza");
+    fill(foods+SIZE/3, foods+(SIZE/3)*2, "cookie");
+    fill(foods+(SIZE/3)*2, foods+SIZE, "CHOUTZ");
+    for(std::string element : foods)
     {
-        std::cout << "Match found at Index: " << index;
+        std::cout << element << "\n";
     }
-    else
-    {
-        std::cout << "No match found.";
-    }
+    
+
+
+
 
     // THE END
     std::cout << "\n------------ PROGRAM ENDED ------------";
@@ -970,30 +1008,53 @@ int main(){
 
 // FUNCTION DEFENITIONS
 
-// Refer to CHAPTER 37
-// This function will iterate until the end of a function to see if there are any matches
-int searchArray(int array[], int size, int element)
-{
-    for(int i=0;i<size;i++) //this is what is called a Linear search.
-    {
-        if(array[i]==element)
-        {
-            return i;
-        }
-    }
-    return -1; //NOTE: in programming, this means something was not found. It is a sentinal value.
-}
-int searchArray(std::string array[], int size, std::string element)
-{
-    for(int i=0;i<size;i++) //this is what is called a Linear search.
-    {
-        if(array[i]==element)
-        {
-            return i;
-        }
-    }
-    return -1;
-}
+
+// // // Refer to CHAPTER 38
+// void bubbleSort(int array[], int size)
+// {
+//     int temp; //temporary variable
+//     for (int i=0; i<(size-1);i++) // the reason it is (size -1) is because the larger numbers
+//     //                               will naturally gravitated to the right, and we won't need
+//     //                               to sort the last item in the array.
+//     {
+//         for (int j=0; j < size - i - 1; j++)
+//         {
+//             if(array[j] > array[j+1]) //This works for Ascending order. Use < for Decending order.
+//             {
+//                 temp = array[j];
+//                 array[j] = array[j+1];
+//                 array[j+1] = temp;
+//             }
+//         }
+//     }
+// }
+// //This is called Bubble Sort. It is a good "sort" algorythm for beginners. There are more
+// //efficent sort algorythms though.
+
+// // Refer to CHAPTER 37
+// // This function will iterate until the end of a function to see if there are any matches
+// int searchArray(int array[], int size, int element)
+// {
+//     for(int i=0;i<size;i++) //this is what is called a Linear search.
+//     {
+//         if(array[i]==element)
+//         {
+//             return i;
+//         }
+//     }
+//     return -1; //NOTE: in programming, this means something was not found. It is a sentinal value.
+// }
+// int searchArray(std::string array[], int size, std::string element)
+// {
+//     for(int i=0;i<size;i++) //this is what is called a Linear search.
+//     {
+//         if(array[i]==element)
+//         {
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
 
 // // Refer to CHAPTER 36
 // //This code isnt going to work! Here is why: https://youtu.be/-TkoO8Z07hI?si=FvxElNmMY1lGLWPy&t=11466
