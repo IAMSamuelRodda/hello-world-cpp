@@ -709,44 +709,44 @@ int main(){
     // //         break;
     // // }
     
-    // //CHAPTER 25: Number guessing game.
-    // // We will need to record the users attempt
-    // // We will need to count the number of attempts
-    // // We will need to compare the final result.
-    // // Start from the ideal solution and work back.
-    // //
-    // // INITIALISING THE VARIABLES
-    // char playAgain;
-    // int userGuess;
-    // int secretNumber;
-    // int attemptNumber;
-    // srand(time(NULL)); //initialises the random number generator.
-    // //
-    // // THE GAME.
-    // do 
-    // {
-    //     attemptNumber = 0;
-    //     secretNumber = rand() % 100 + 1; // generates a new secret number.
-    //     do 
-    //     {
-    //         std::cout << "Guess a number between 1 and 100: ";
-    //         std::cin >> userGuess;
-    //         attemptNumber++; // this is the same as: attemptNumber = attemptNumber + 1;
-    //         if (userGuess > secretNumber)
-    //         {
-    //             std::cout << "Too high! Try again.\n";
-    //         }
-    //         else if (userGuess < secretNumber)
-    //         {
-    //             std::cout << "Too low. Try again.\n";
-    //         }
-    //     } while (userGuess !=  secretNumber);
-    //     std::cout << "\nYou got it right in " << attemptNumber << " guesses! Legendary move. \n\n";
-    //     std::cout << "Do you want to play again (Y/N)? ";
-    //     std::cin >> playAgain;
-    // } while (playAgain == 'Y' || playAgain == 'y');
+    //CHAPTER 25: Number guessing game.
+    // We will need to record the users attempt
+    // We will need to count the number of attempts
+    // We will need to compare the final result.
+    // Start from the ideal solution and work back.
+    //
+    // INITIALISING THE VARIABLES
+    char playAgain;
+    int userGuess;
+    int secretNumber;
+    int attemptNumber;
+    srand(time(NULL)); //initialises the random number generator.
+    //
+    // THE GAME.
+    do 
+    {
+        attemptNumber = 0;
+        secretNumber = rand() % 100 + 1; // generates a new secret number.
+        do 
+        {
+            std::cout << "Guess a number between 1 and 100: ";
+            std::cin >> userGuess;
+            attemptNumber++; // this is the same as: attemptNumber = attemptNumber + 1;
+            if (userGuess > secretNumber)
+            {
+                std::cout << "Too high! Try again.\n";
+            }
+            else if (userGuess < secretNumber)
+            {
+                std::cout << "Too low. Try again.\n";
+            }
+        } while (userGuess !=  secretNumber);
+        std::cout << "\nYou got it right in " << attemptNumber << " guesses! Legendary move. \n\n";
+        std::cout << "Do you want to play again (Y/N)? ";
+        std::cin >> playAgain;
+    } while (playAgain == 'Y' || playAgain == 'y');
 
-    // std::cout << "Thanks for playing my game!";
+    std::cout << "Thanks for playing my game!";
 
     
 
@@ -765,13 +765,18 @@ int main(){
     
     // std::cout << "Area is equal to "<< square(length) << " square metres\n";
     // std::cout << "Volume is equal to "<< cube(length) << " square metres\n";
-    std::string firstName;
-    std::string lastName;
-    std::cout << "Please enter your first name: ";
-    std::getline(std::cin, firstName);
-    std::cout << "Please enter your last name: ";
-    std::getline(std::cin, lastName);
-    std::cout << "Hello, " << concatStrings(firstName,lastName) << "\n";
+    // std::string firstName;
+    // std::string lastName;
+    // std::cout << "Please enter your first name: ";
+    // std::getline(std::cin, firstName);
+    // std::cout << "Please enter your last name: ";
+    // std::getline(std::cin, lastName);
+    // std::cout << "Hello, " << concatStrings(firstName,lastName) << "\n";
+
+
+
+    //CHAPTER 28: Overloaded functions. In C++ (and many other languages) you can have different versions
+    //                                  of a function.
 
 
 
@@ -783,23 +788,30 @@ int main(){
 
 
 // FUNCTION DEFENITIONS
+// Refer to CHAPTER 28
+// void bakePizza()
+// {
+//     std::cout << "Here is your Pizza!";
+// }
+
+
 // Refer to CHAPTER 27
 //
-double square(double length)
-{
-    double result = length*length;
-    return result; //if we are returning a value, we need to change the initial keyword 'void' to the data type
-    //               that we are returning, in this case, 'double'.
-}
-double cube(double length)
-{
-    return length*length*length; //this is also a valid efficent way of writing these return functions on one line.
-}
-// Challenge: Collect a users first name, last name, then use a function that combines these to form Full name string.
-std::string concatStrings(std::string string1, std::string string2)
-{
-    return string1 + " " + string1;
-}
+// double square(double length)
+// {
+//     double result = length*length;
+//     return result; //if we are returning a value, we need to change the initial keyword 'void' to the data type
+//     //               that we are returning, in this case, 'double'.
+// }
+// double cube(double length)
+// {
+//     return length*length*length; //this is also a valid efficent way of writing these return functions on one line.
+// }
+// // Challenge: Collect a users first name, last name, then use a function that combines these to form Full name string.
+// std::string concatStrings(std::string string1, std::string string2)
+// {
+//     return string1 + " " + string1;
+// }
 
 // Refer to CHAPTER 26
 //
