@@ -998,53 +998,89 @@ int main(){
     
 
 
-    //CHAPTER 40: Accepting user input and putting it inside an array 
-    std::string foods[3]; //NOTE: Array's are static data structures; once the program is
-    //                            running, the size is  and cannot be changed. It can also
-    //                            be called Static Memory.
-    int size = sizeof(foods)/sizeof(foods[0]);
-    std::string temp;
+    // //CHAPTER 40: Accepting user input and putting it inside an array 
+    // std::string foods[3]; //NOTE: Array's are static data structures; once the program is
+    // //                            running, the size is  and cannot be changed. It can also
+    // //                            be called Static Memory.
+    // int size = sizeof(foods)/sizeof(foods[0]);
+    // std::string temp;
 
-    for (int i=0; i<size; i++)
-    {
-        std::cout << "Enter a food you like or 'q' to quit #" << i+1 <<" : "; 
-        std::getline(std::cin, temp);
-        
-        //THIS WAS MY CODE. It works, but Bro Code's is interesting too.
-        // if (foods[i]=="q")
-        // {
-        //     fill(foods+i,foods+size, "n/a");
-        //     break;
-        // } 
-        if (temp=="q")
-        {
-            break;
-        } 
-        else 
-        {
-            foods[i] = temp;
-        }
-    }
-    std::cout << "\n"; 
-    
-    //MY CODE:
-    // for(int i=0; i<size; i++)
+    // for (int i=0; i<size; i++)
     // {
-    //     if (foods[i].empty())
+    //     std::cout << "Enter a food you like or 'q' to quit #" << i+1 <<" : "; 
+    //     std::getline(std::cin, temp);
+        
+    //     //THIS WAS MY CODE. It works, but Bro Code's is interesting too.
+    //     // if (foods[i]=="q")
+    //     // {
+    //     //     fill(foods+i,foods+size, "n/a");
+    //     //     break;
+    //     // } 
+    //     if (temp=="q")
     //     {
-    //         continue;
-    //     }
+    //         break;
+    //     } 
     //     else 
     //     {
-    //         std::cout << "#"<< i+1 << ": " << foods[i] << "\n";
+    //         foods[i] = temp;
     //     }
     // }
-    // BRO CODE:
-    for(int i=0; !foods[i].empty(); i++)
-    {
-        std::cout << "#"<< i+1 << ": " << foods[i] << "\n";
-    }
+    // std::cout << "\n"; 
+
+    // //MY CODE:
+    // // for(int i=0; i<size; i++)
+    // // {
+    // //     if (foods[i].empty())
+    // //     {
+    // //         continue;
+    // //     }
+    // //     else 
+    // //     {
+    // //         std::cout << "#"<< i+1 << ": " << foods[i] << "\n";
+    // //     }
+    // // }
+    // // BRO CODE:
+    // for(int i=0; !foods[i].empty(); i++)
+    // {
+    //     std::cout << "#"<< i+1 << ": " << foods[i] << "\n";
+    // }
     
+
+
+    //CHAPTER 41: Multidimensional arrays = Array that is made up of arrays.
+    //                                      They are good as they can represent a grid of data
+    //                                      with rows and columns.
+
+    std::string cars[][4] = {{"Mustang","Escape","F-250"},
+                             {"Corvette","Equinox","Silverado"},
+                             {"Challenger","Durango","Ram 1500"}};
+    // NOTE: If you are initialising your Array right away, you don't need a row size, but
+    //       you do need a column size always.
+    //       Organise as if they are a matrix.
+    // std::cout << cars[0][0] << " ";
+    // std::cout << cars[0][1] << " ";
+    // std::cout << cars[0][2] << "\n";
+    // std::cout << cars[1][0] << " ";
+    // std::cout << cars[1][1] << " ";
+    // std::cout << cars[1][2] << "\n";
+    // std::cout << cars[2][0] << " ";
+    // std::cout << cars[2][1] << " ";
+    // std::cout << cars[2][2] << "\n";
+    int rows = sizeof(cars)/sizeof(cars[0]);
+    int columns = sizeof(cars[0])/sizeof(cars[0][0]);
+
+    for (int i = 0; i<rows; i++)
+    {
+        //std::cout << cars[i] << "\n";
+        for(int j = 0; j<columns; j++)
+        {
+            std::cout << cars[i][j] << " ";
+        }
+        std::cout << "\n";
+    }
+
+
+
 
 
 
