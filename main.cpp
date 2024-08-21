@@ -976,24 +976,73 @@ int main(){
 
 
 
-    //CHAPTER 39: fill() = fills a range of elements with a specified value.
-    //                     Its arguments are: fill(begin address, end address, value)
-    // std::string foods[10] = {"pizza","pizza","pizza","pizza","pizza","pizza","pizza","pizza","pizza","pizza"};
+    // //CHAPTER 39: fill() = fills a range of elements with a specified value.
+    // //                     Its arguments are: fill(begin address, end address, value)
+    // // std::string foods[10] = {"pizza","pizza","pizza","pizza","pizza","pizza","pizza","pizza","pizza","pizza"};
+    // // for(std::string element : foods)
+    // // {
+    // //     std::cout << element << "\n";
+    // // }
+    // //The above does work, but it is not very efficient. Manually initialising an Array is
+    // //not pratical. fill() offers one solution.
+    // //Imagine if our array was 100 elements in size!!
+    // const int SIZE = 100; //REMEMBER: const variable naming convension is to use UPPERCASE.
+    // std::string foods[SIZE]; //NOTE: Array's will only accept const int. 
+    // fill(foods, foods+SIZE/3, "pizza");
+    // fill(foods+SIZE/3, foods+(SIZE/3)*2, "cookie");
+    // fill(foods+(SIZE/3)*2, foods+SIZE, "CHOUTZ");
     // for(std::string element : foods)
     // {
     //     std::cout << element << "\n";
     // }
-    //The above does work, but it is not very efficient. Manually initialising an Array is
-    //not pratical. fill() offers one solution.
-    //Imagine if our array was 100 elements in size!!
-    const int SIZE = 100; //REMEMBER: const variable naming convension is to use UPPERCASE.
-    std::string foods[SIZE]; //NOTE: Array's will only accept const int. 
-    fill(foods, foods+SIZE/3, "pizza");
-    fill(foods+SIZE/3, foods+(SIZE/3)*2, "cookie");
-    fill(foods+(SIZE/3)*2, foods+SIZE, "CHOUTZ");
-    for(std::string element : foods)
+    
+
+
+    //CHAPTER 40: Accepting user input and putting it inside an array 
+    std::string foods[3]; //NOTE: Array's are static data structures; once the program is
+    //                            running, the size is  and cannot be changed. It can also
+    //                            be called Static Memory.
+    int size = sizeof(foods)/sizeof(foods[0]);
+    std::string temp;
+
+    for (int i=0; i<size; i++)
     {
-        std::cout << element << "\n";
+        std::cout << "Enter a food you like or 'q' to quit #" << i+1 <<" : "; 
+        std::getline(std::cin, temp);
+        
+        //THIS WAS MY CODE. It works, but Bro Code's is interesting too.
+        // if (foods[i]=="q")
+        // {
+        //     fill(foods+i,foods+size, "n/a");
+        //     break;
+        // } 
+        if (temp=="q")
+        {
+            break;
+        } 
+        else 
+        {
+            foods[i] = temp;
+        }
+    }
+    std::cout << "\n"; 
+    
+    //MY CODE:
+    // for(int i=0; i<size; i++)
+    // {
+    //     if (foods[i].empty())
+    //     {
+    //         continue;
+    //     }
+    //     else 
+    //     {
+    //         std::cout << "#"<< i+1 << ": " << foods[i] << "\n";
+    //     }
+    // }
+    // BRO CODE:
+    for(int i=0; !foods[i].empty(); i++)
+    {
+        std::cout << "#"<< i+1 << ": " << foods[i] << "\n";
     }
     
 
