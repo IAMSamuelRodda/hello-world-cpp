@@ -25,6 +25,7 @@ void bakePizza(std::string topping1);
 void bakePizza(std::string topping1, std::string topping2);
 //void printNum(int myNum);
 void printNum();
+double getTotal(double array[], int size);
 
 
 //GLOBAL VARIABLES
@@ -892,22 +893,36 @@ int main(){
 
 
 
-    //CHAPTER 35: for each loop
-    // foreach loop = loop that eases the traversal over an iterable data set.
-    //
-    // Here is where they can help, instead of this:
+    // //CHAPTER 35: for each loop
+    // // foreach loop = loop that eases the traversal over an iterable data set.
+    // //
+    // // Here is where they can help, instead of this:
+    // // std::string students [] = {"Sam","Choutz","Mike", "John", "Stacy"};
+    // // for (int i = 0; i < sizeof(students)/sizeof(std::string); i++) {
+    // //     std::cout << students[i] << "\n";
+    // // }; 
+    // //Do this: for ('Data Type' ElementName ArrayName) {}
+    // // You can make up the ElementName directly in the for each loop.
     // std::string students [] = {"Sam","Choutz","Mike", "John", "Stacy"};
-    // for (int i = 0; i < sizeof(students)/sizeof(std::string); i++) {
-    //     std::cout << students[i] << "\n";
+    // for (std::string student : students) { // student is the NAME of the Element Type.
+    // //                                        students is the NAME of the Array.
+    //     std::cout << student << "\n";
     // }; 
-    //Do this: for ('Data Type' ElementName ArrayName) {}
-    // You can make up the ElementName directly in the for each loop.
-    std::string students [] = {"Sam","Choutz","Mike", "John", "Stacy"};
-    for (std::string student : students) { // student is the NAME of the Element Type.
-    //                                        students is the NAME of the Array.
-        std::cout << student << "\n";
-    }; 
 
+
+
+    //CHAPTER 35: Pass array to a function.
+    //
+    double prices[] = {1,2.5,1,2.5};
+    int size = sizeof(prices)/sizeof(prices[0]); //NOTE: You don't need to know the Data Type
+    //                                                   to calculate array size. Just direct
+    //                                                   the formula to the initial element
+    //                                                   in the array at array[0]. It is the 
+    //                                                   same! 
+
+    double total = getTotal(prices, size);
+
+    std::cout << "$" << total << "\n";
 
 
     // THE END
@@ -917,6 +932,32 @@ int main(){
 
 
 // FUNCTION DEFENITIONS
+
+// Refer to CHAPTER 36
+//This code isnt going to work! Here is why: https://youtu.be/-TkoO8Z07hI?si=FvxElNmMY1lGLWPy&t=11466
+// 
+// double getTotal(double array[]){
+//     double total = 0;
+//     for (int i=0; i < sizeof(array)/sizeof(array[0]); i++) 
+//     {
+//         total = total + array[i]; // or total += array[i] is valid.
+//     }
+//     return total;
+// };
+// When we pass an Array to a Function it decays into a Pointer.
+// Within the above function, we are not working with an Array anymore, we are working with
+// a Pointer that points to the address of where the Array begins.
+// This function has no idea how big this array is anymore!
+// Instead, we can calculate the size in our main function and pass it explicitly.
+double getTotal(double array[], int size){
+    double total = 0;
+    for (int i=0; i < size; i++) 
+    {
+        total = total + array[i]; // or total += array[i] is valid.
+    }
+    return total;
+};
+
 
 // Refer to CHAPTER 29
 // void printNum(int myNum){
