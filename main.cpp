@@ -23,6 +23,16 @@ std::string concatStrings(std::string string1, std::string string2);
 void bakePizza();
 void bakePizza(std::string topping1);
 void bakePizza(std::string topping1, std::string topping2);
+//void printNum(int myNum);
+void printNum();
+
+
+//GLOBAL VARIABLES
+//WARNING: It is best to avoid Global variables if you can as it pollutes the global namespace.
+//         Also, variables declared inside functions are more secure, as functions cannot see
+//         inside of other functions without the perameters being explicitly defined.
+int myNum = 3;
+
 
 
 // COURSE NAMESPACES.
@@ -779,7 +789,17 @@ int main(){
 
     //CHAPTER 28: Overloaded functions. In C++ (and many other languages) you can have different versions
     //                                  of a function.
-    bakePizza("cheese", "lamb");
+    // bakePizza("cheese", "lamb");
+
+
+
+    //CHAPTER 28: Variable scope. They come in two types:
+    //                            Local variables = declared inside a function or code block {}
+    //                            Global variables = declared outside of all functions
+    int myNum = 1;
+    printNum(); //this is not going to work as function cannot 
+    std::cout << "cout: " << ::myNum << "\n"; //if you want to use the Global variable, proceed the variable
+    //                            with these two ::, else leave off to use the Local variable.
 
 
     // THE END
@@ -789,27 +809,37 @@ int main(){
 
 
 // FUNCTION DEFENITIONS
+// void printNum(int myNum){
+//     std::cout << myNum;
+// }
+void printNum(){
+    int myNum = 2; //with the Global variable defined, and this local variable defined
+    //               the Local variable will override it.
+    std::cout << "printNum: " << myNum << "\n";
+}
+
+
 // Refer to CHAPTER 28
-void bakePizza()
-{
-    std::cout << "Here is your Pizza! \n";
-}
-void bakePizza(std::string topping1)
-{
-    std::cout << "Here is your "<< topping1 << " Pizza!\n"; // it is valid for functions to accept
-    //                                                        the same name, but you need a
-    //                                                        different set of perameters.
-    //
-    // NOTE: a functions name + perameters = function signature.
-}
-void bakePizza(std::string topping1, std::string topping2)
-{
-    std::cout << "Here is your "<< topping1 << " & " << topping2 << " Pizza!\n"; // it is valid for functions to accept
-    //                                                        the same name, but you need a
-    //                                                        different set of perameters.
-    //
-    // NOTE: a functions name + perameters = function signature.
-}
+// void bakePizza()
+// {
+//     std::cout << "Here is your Pizza! \n";
+// }
+// void bakePizza(std::string topping1)
+// {
+//     std::cout << "Here is your "<< topping1 << " Pizza!\n"; // it is valid for functions to accept
+//     //                                                        the same name, but you need a
+//     //                                                        different set of perameters.
+//     //
+//     // NOTE: a functions name + perameters = function signature.
+// }
+// void bakePizza(std::string topping1, std::string topping2)
+// {
+//     std::cout << "Here is your "<< topping1 << " & " << topping2 << " Pizza!\n"; // it is valid for functions to accept
+//     //                                                        the same name, but you need a
+//     //                                                        different set of perameters.
+//     //
+//     // NOTE: a functions name + perameters = function signature.
+// }
 
 // Refer to CHAPTER 27
 //
