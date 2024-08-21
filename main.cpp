@@ -85,7 +85,7 @@ namespace chapter_21{
 
 //CHAPTER 2: Variables and Data Types
 int main(){
-    std::cout << "~~~~~~~~~~~ PROGRAM STARTED ~~~~~~~~~~~\n\n";
+    // std::cout << "~~~~~~~~~~~ PROGRAM STARTED ~~~~~~~~~~~\n\n";
     // std::string z; //deceleration.
     // z = " Mice."; //assignment.
     // int x; //deceleration.
@@ -1047,55 +1047,99 @@ int main(){
     
 
 
-    //CHAPTER 41: Multidimensional arrays = Array that is made up of arrays.
-    //                                      They are good as they can represent a grid of data
-    //                                      with rows and columns.
+    // //CHAPTER 41: Multidimensional arrays = Array that is made up of arrays.
+    // //                                      They are good as they can represent a grid of data
+    // //                                      with rows and columns.
 
-    std::string cars[][3] = {{"Mustang","Escape","F-250"},
-                             {"Corvette","Equinox","Silverado"},
-                             {"Challenger","Durango","Ram 1500"}}; // This is technically, 
-                             //                                      nested arrays.
-    // NOTE: If you are initialising your Array right away, you don't need a row size, but
-    //       you do need a column size always.
-    //       Organise as if they are a matrix.
-    // std::cout << cars[0][0] << " ";
-    // std::cout << cars[0][1] << " ";
-    // std::cout << cars[0][2] << "\n";
-    // std::cout << cars[1][0] << " ";
-    // std::cout << cars[1][1] << " ";
-    // std::cout << cars[1][2] << "\n";
-    // std::cout << cars[2][0] << " ";
-    // std::cout << cars[2][1] << " ";
-    // std::cout << cars[2][2] << "\n";
-    std::cout << "Number of bytes in 1 of the our level Array slots: " << sizeof(cars[0]) << "\n";
-    int rows = sizeof(cars)/sizeof(cars[0]); //calculates the number of outer arrays slots.
-    //                                         The size of the whole array, divided by the size
-    //                                         of one of the outer slots = number of slots 
-    //                                         aka, number of rows. 
-    int columns = sizeof(cars[0])/sizeof(cars[0][0]); //calculates the number of inner array slots
-    //                                                  by taking the whole size of on of the inner
-    //                                                  slots and dividing it by the size of one
-    //                                                  of its elements = number of inner elements
-    //                                                  aka, number of columns.
+    // std::string cars[][3] = {{"Mustang","Escape","F-250"},
+    //                          {"Corvette","Equinox","Silverado"},
+    //                          {"Challenger","Durango","Ram 1500"}}; // This is technically, 
+    //                          //                                      nested arrays.
+    // // NOTE: If you are initialising your Array right away, you don't need a row size, but
+    // //       you do need a column size always.
+    // //       Organise as if they are a matrix.
+    // // std::cout << cars[0][0] << " ";
+    // // std::cout << cars[0][1] << " ";
+    // // std::cout << cars[0][2] << "\n";
+    // // std::cout << cars[1][0] << " ";
+    // // std::cout << cars[1][1] << " ";
+    // // std::cout << cars[1][2] << "\n";
+    // // std::cout << cars[2][0] << " ";
+    // // std::cout << cars[2][1] << " ";
+    // // std::cout << cars[2][2] << "\n";
+    // std::cout << "Number of bytes in 1 of the our level Array slots: " << sizeof(cars[0]) << "\n";
+    // int rows = sizeof(cars)/sizeof(cars[0]); //calculates the number of outer arrays slots.
+    // //                                         The size of the whole array, divided by the size
+    // //                                         of one of the outer slots = number of slots 
+    // //                                         aka, number of rows. 
+    // int columns = sizeof(cars[0])/sizeof(cars[0][0]); //calculates the number of inner array slots
+    // //                                                  by taking the whole size of on of the inner
+    // //                                                  slots and dividing it by the size of one
+    // //                                                  of its elements = number of inner elements
+    // //                                                  aka, number of columns.
     
-    for (int i = 0; i<rows; i++)
+    // for (int i = 0; i<rows; i++)
+    // {
+    //     //std::cout << cars[i] << "\n";
+    //     for(int j = 0; j<columns; j++)
+    //     {
+    //         std::cout << cars[i][j] << " ";
+    //     }
+    //     std::cout << "\n";
+    // }
+
+
+
+    //CHAPTER 42: Quiz game
+    char temp; //this is to accept player's answer
+    std::string questions[] = {"1. What is my pets name?",
+                               "2. How tall am I?",
+                               "3. What is my wife's middle name?",
+                               "4. Can I sing?"};
+    int sizeQuestions = sizeof(questions)/sizeof(questions[0]);
+    std::string options[][4] = {{"A. Blane", "B. Peter", "C. Vanny", "D. Winky"},
+                                {"A. 182cm", "B. 129cm", "C. 192cm", "D. 192m"},
+                                {"A. van","B. Sam","C. N/A", "D. Serina"},
+                                {"A. Sometimes", "B. No", "C. Badly", "D. Who are you?"}};
+    int rowOptions = sizeof(options)/sizeof(options[0]);
+    int columnOptions = sizeof(options[0])/sizeof(options[0][0]);
+    char answers[] = {'D','A','C','C'};
+    int score = 0;
+    std::cout << "************* ITS TIME TO PLAY A GAME ************* \n \n";
+    for (int i=0; i<sizeQuestions;i++)
     {
-        //std::cout << cars[i] << "\n";
-        for(int j = 0; j<columns; j++)
+        
+        std::cout << questions[i] << "\n";
+        std::cout << "\nThe options are:\n";
+        for (int j=0; j<rowOptions;j++)
         {
-            std::cout << cars[i][j] << " ";
+            std::cout << options[i][j] << " ";
         }
-        std::cout << "\n";
+        std::cout << "\n\n";
+        std::cout << "What is your answer? Type your answer and press Enter: ";
+        std::cin >> temp;
+        if (temp == answers[i])
+        {
+            score++;
+            std::cout << "\n~~~~~ Correct! Your current score is : " <<score<<" ~~~~~\n\n";
+            //std::cout << "On to the next question!\n\n";
+        }
+        else 
+        {
+            std::cout << "\n!!!!!! Wrong. The correct answer was: " <<answers[i]<<" !!!!!!\n\n";
+            //std::cout << "Better luck on the next one. . .\n\n";
+        }
     }
-
-
-
-
-
+    std::cout << "Your final score is : " << score << "\n\n" << "************* Thanks for playing! *************\n" << "Type 'Q' then press Enter to Quit the game.\n";
+    char quit;
+    do
+    {
+        std::cin >> quit;
+    }while (quit != 'Q' && quit != 'q');
 
 
     // THE END
-    std::cout << "\n------------ PROGRAM ENDED ------------";
+    //std::cout << "\n------------ PROGRAM ENDED ------------";
     return 0;
 }
 
