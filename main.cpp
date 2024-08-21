@@ -85,7 +85,7 @@ namespace chapter_21{
 
 //CHAPTER 2: Variables and Data Types
 int main(){
-    // std::cout << "~~~~~~~~~~~ PROGRAM STARTED ~~~~~~~~~~~\n\n";
+    std::cout << "~~~~~~~~~~~ PROGRAM STARTED ~~~~~~~~~~~\n\n";
     // std::string z; //deceleration.
     // z = " Mice."; //assignment.
     // int x; //deceleration.
@@ -1091,55 +1091,74 @@ int main(){
 
 
     //CHAPTER 42: Quiz game
-    char temp; //this is to accept player's answer
-    std::string questions[] = {"1. What is my pets name?",
-                               "2. How tall am I?",
-                               "3. What is my wife's middle name?",
-                               "4. Can I sing?"};
-    int sizeQuestions = sizeof(questions)/sizeof(questions[0]);
-    std::string options[][4] = {{"A. Blane", "B. Peter", "C. Vanny", "D. Winky"},
-                                {"A. 182cm", "B. 129cm", "C. 192cm", "D. 192m"},
-                                {"A. van","B. Sam","C. N/A", "D. Serina"},
-                                {"A. Sometimes", "B. No", "C. Badly", "D. Who are you?"}};
-    int rowOptions = sizeof(options)/sizeof(options[0]);
-    int columnOptions = sizeof(options[0])/sizeof(options[0][0]);
-    char answers[] = {'D','A','C','C'};
-    int score = 0;
-    std::cout << "************* ITS TIME TO PLAY A GAME ************* \n \n";
-    for (int i=0; i<sizeQuestions;i++)
-    {
+    // char temp; //this is to accept player's answer
+    // std::string questions[] = {"1. What is my pets name?",
+    //                            "2. How tall am I?",
+    //                            "3. What is my wife's middle name?",
+    //                            "4. Can I sing?"};
+    // int sizeQuestions = sizeof(questions)/sizeof(questions[0]);
+    // std::string options[][4] = {{"A. Blane", "B. Peter", "C. Vanny", "D. Winky"},
+    //                             {"A. 182cm", "B. 129cm", "C. 192cm", "D. 192m"},
+    //                             {"A. van","B. Sam","C. N/A", "D. Serina"},
+    //                             {"A. Sometimes", "B. No", "C. Badly", "D. Who are you?"}};
+    // int rowOptions = sizeof(options)/sizeof(options[0]);
+    // int columnOptions = sizeof(options[0])/sizeof(options[0][0]);
+    // char answers[] = {'D','A','C','C'};
+    // int score = 0;
+    // std::cout << "************* ITS TIME TO PLAY A GAME ************* \n \n";
+    // for (int i=0; i<sizeQuestions;i++)
+    // {
         
-        std::cout << questions[i] << "\n";
-        std::cout << "\nThe options are:\n";
-        for (int j=0; j<rowOptions;j++)
-        {
-            std::cout << options[i][j] << " ";
-        }
-        std::cout << "\n\n";
-        std::cout << "What is your answer? Type your answer and press Enter: ";
-        std::cin >> temp;
-        if (temp == answers[i])
-        {
-            score++;
-            std::cout << "\n~~~~~ Correct! Your current score is : " <<score<<" ~~~~~\n\n";
-            //std::cout << "On to the next question!\n\n";
-        }
-        else 
-        {
-            std::cout << "\n!!!!!! Wrong. The correct answer was: " <<answers[i]<<" !!!!!!\n\n";
-            //std::cout << "Better luck on the next one. . .\n\n";
-        }
-    }
-    std::cout << "Your final score is : " << score << "\n\n" << "************* Thanks for playing! *************\n" << "Type 'Q' then press Enter to Quit the game.\n";
-    char quit;
-    do
-    {
-        std::cin >> quit;
-    }while (quit != 'Q' && quit != 'q');
+    //     std::cout << questions[i] << "\n";
+    //     std::cout << "\nThe options are:\n";
+    //     for (int j=0; j<rowOptions;j++)
+    //     {
+    //         std::cout << options[i][j] << " ";
+    //     }
+    //     std::cout << "\n\n";
+    //     std::cout << "What is your answer? Type your answer and press Enter: ";
+    //     std::cin >> temp;
+    //     if (temp == answers[i])
+    //     {
+    //         score++;
+    //         std::cout << "\n~~~~~ Correct! Your current score is : " <<score<<" ~~~~~\n\n";
+    //         //std::cout << "On to the next question!\n\n";
+    //     }
+    //     else 
+    //     {
+    //         std::cout << "\n!!!!!! Wrong. The correct answer was: " <<answers[i]<<" !!!!!!\n\n";
+    //         //std::cout << "Better luck on the next one. . .\n\n";
+    //     }
+    // }
+    // std::cout << "Your final score is : " << score << "\n\n" << "************* Thanks for playing! *************\n" << "Type 'Q' then press Enter to Quit the game.\n";
+    // char quit;
+    // do
+    // {
+    //     std::cin >> quit;
+    // }while (quit != 'Q' && quit != 'q');
+
+
+    //CHAPTER 43: Memory address = a location in memory where data is stored. A memory address
+    //                             can be accessed with & (address-of operator).
+
+    std::string name = "CHOUTZ";
+    int age = 33;
+    bool student = true;
+    bool* p_student = &student;
+    std::cout << &age << "\n"; //this will display the location in memory of the variable 'age'.
+    //                   It is a hexidecimal address. 
+    //                   NOTE: Everytime you run the program, the address is likely to change.
+    std::cout << &student << "\n";
+    std::cout << &name << "\n";
+    // NOTE: these are like, "street addresses" to use an analogy.
+    //       If you convert these memory addresses to decimal, you can see the spacing 
+    //       between them. The spacing will be different depending on the Data Type. 
+    //       This is why we need to specify Data Types, as we need to know how much memory
+    //       to set aside to store the variable.
 
 
     // THE END
-    //std::cout << "\n------------ PROGRAM ENDED ------------";
+    std::cout << "\n------------ PROGRAM ENDED ------------";
     return 0;
 }
 
