@@ -29,6 +29,8 @@ double getTotal(double array[], int size);
 int searchArray(int array[], int size, int element);
 int searchArray(std::string array[], int size, std::string element);
 void bubbleSort(int array[], int size);
+void swap(std::string &x, std::string &y);
+void swapAddresses(std::string x, std::string y);
 
 
 //GLOBAL VARIABLES
@@ -1138,24 +1140,50 @@ int main(){
     // }while (quit != 'Q' && quit != 'q');
 
 
-    //CHAPTER 43: Memory address = a location in memory where data is stored. A memory address
-    //                             can be accessed with & (address-of operator).
+    // //CHAPTER 43: Memory address = a location in memory where data is stored. A memory address
+    // //                             can be accessed with & (address-of operator).
 
-    std::string name = "CHOUTZ";
-    int age = 33;
-    bool student = true;
-    bool* p_student = &student;
-    std::cout << &age << "\n"; //this will display the location in memory of the variable 'age'.
-    //                   It is a hexidecimal address. 
-    //                   NOTE: Everytime you run the program, the address is likely to change.
-    std::cout << &student << "\n";
-    std::cout << &name << "\n";
-    // NOTE: these are like, "street addresses" to use an analogy.
-    //       If you convert these memory addresses to decimal, you can see the spacing 
-    //       between them. The spacing will be different depending on the Data Type. 
-    //       This is why we need to specify Data Types, as we need to know how much memory
-    //       to set aside to store the variable.
+    // std::string name = "CHOUTZ";
+    // int age = 33;
+    // bool student = true;
+    // bool* p_student = &student;
+    // std::cout << &age << "\n"; //this will display the location in memory of the variable 'age'.
+    // //                   It is a hexidecimal address. 
+    // //                   NOTE: Everytime you run the program, the address is likely to change.
+    // std::cout << &student << "\n";
+    // std::cout << &name << "\n";
+    // // NOTE: these are like, "street addresses" to use an analogy.
+    // //       If you convert these memory addresses to decimal, you can see the spacing 
+    // //       between them. The spacing will be different depending on the Data Type. 
+    // //       This is why we need to specify Data Types, as we need to know how much memory
+    // //       to set aside to store the variable.
 
+
+    //CHAPTER 44: Pass by VALUE vs pass by REFERENCE
+
+    std::string x = "Kool-Aid";
+    std::string y = "Water";
+    //std::string temp;
+
+    //Let's swap these variables.
+    // temp = x;
+    // x = y;
+    // y = temp;
+
+    // std::cout << "x = "<< x << "\n";
+    // std::cout << "y = "<< y << "\n";
+
+    //Now, let's create a function that will swap these variables for us.
+
+    //swap(x,y);
+    // NOTE: To reinforce the differences between VALUE and REFERENCE passing, 
+    //       here is a VALUE pass comparison.
+
+    std::cout << "x = "<< x << " : Memory address = " << &x << "\n";
+    std::cout << "y = "<< y << " : Memory address = " << &y << "\n";
+    swapAddresses(x,y);
+    //WARNING: You should use pass by REFERENCE as often as possible unless you
+    //         a specific reason to pass by VALUE.
 
     // THE END
     std::cout << "\n------------ PROGRAM ENDED ------------";
@@ -1164,6 +1192,43 @@ int main(){
 
 
 // FUNCTION DEFENITIONS
+
+
+
+// Refer to CHAPTER 44
+// void swap(std::string x, std::string y)
+// {
+//     std::string temp;
+//     temp = x;
+//     x = y;
+//     y = temp;
+// }
+// HA! This above didnt swap them. Why?
+// NOTE: Normally, when we pass a variable to a function, we are passing by VALUE. When we
+//       invoke the function, we are creating copies of the original values. What we have 
+//       above is a copy of the variable x & y, with the originals still sitting in the main()
+//       function.
+//       All we are doing in the function, is switching the two copies around, then displaying
+//       the originals which were never swapped! xD
+//       Pass by VALUE creates copies of the Arguments.
+//       If you need to change the original values, we need to pass by REFERENCE.
+//       A REFERENCE = Memory address in this case. A location in memory where the original
+//       is stored.
+void swap(std::string &x, std::string &y)
+{
+    std::string temp;
+    temp = x;
+    x = y;
+    y = temp;
+}
+
+void swapAddresses(std::string x, std::string y)
+{
+    std::cout << "x = "<< x << " : Memory address = " << &x << "\n";
+    std::cout << "y = "<< y << " : Memory address = " << &y << "\n";
+}
+// This worked! You are learning. ;P
+
 
 
 // // // Refer to CHAPTER 38
@@ -1187,6 +1252,8 @@ int main(){
 // }
 // //This is called Bubble Sort. It is a good "sort" algorythm for beginners. There are more
 // //efficent sort algorythms though.
+
+
 
 // // Refer to CHAPTER 37
 // // This function will iterate until the end of a function to see if there are any matches
