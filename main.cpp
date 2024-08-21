@@ -793,13 +793,53 @@ int main(){
 
 
 
-    //CHAPTER 28: Variable scope. They come in two types:
-    //                            Local variables = declared inside a function or code block {}
-    //                            Global variables = declared outside of all functions
-    int myNum = 1;
-    printNum(); //this is not going to work as function cannot 
-    std::cout << "cout: " << ::myNum << "\n"; //if you want to use the Global variable, proceed the variable
-    //                            with these two ::, else leave off to use the Local variable.
+    // //CHAPTER 29: Variable scope. They come in two types:
+    // //                            Local variables = declared inside a function or code block {}
+    // //                            Global variables = declared outside of all functions
+    // int myNum = 1;
+    // printNum(); //this is not going to work as function cannot 
+    // std::cout << "cout: " << ::myNum << "\n"; //if you want to use the Global variable, proceed the variable
+    // //                            with these two ::, else leave off to use the Local variable.
+
+
+
+    // //CHAPTER 30: Banking practice program
+    // SKIPPED.
+
+
+
+    // //CHAPTER 31: Rock, Paper, Scissors practice program
+    // SKIPPED.
+
+
+
+    // //CHAPTER 32: Arrays = Data structure that can hold multiple values
+    //                        Values are accessed by an index number.
+    //                        Think about it like, "a variable that holds multiple values".
+    //                        It is more complicated then that, but its a good mental
+    //                        model.
+    //
+    std::string cars [] = {"tesla","mazda","ford"};
+    // WARNING: Arrays can only contain values of the SAME Data Type.
+    //std::cout << car; //this will display the memory address of where our array is located.
+    //You can reassign values:
+    cars[1] = "holden"; //this also means that you can declare an array first, leave it empty,
+    //                    then assign values later
+    std::string food[4];
+    food[0]="pizza";
+    food[1]="cheese";
+    food[2]="sugar";
+    food[3]="milk";
+    std::cout << food[1] << "\n"; 
+
+
+    std::cout << cars[0] << "\n"; //to access it we need to give index values. 
+    //                               This will display "tesla"
+    //                       WARNING: Computers always start at 0, aka [0,0]
+    std::cout << cars[1] << "\n";
+    std::cout << cars[2] << "\n"; //this is also valid.
+
+
 
 
     // THE END
@@ -809,14 +849,16 @@ int main(){
 
 
 // FUNCTION DEFENITIONS
+
+// Refer to CHAPTER 29
 // void printNum(int myNum){
 //     std::cout << myNum;
 // }
-void printNum(){
-    int myNum = 2; //with the Global variable defined, and this local variable defined
-    //               the Local variable will override it.
-    std::cout << "printNum: " << myNum << "\n";
-}
+// void printNum(){
+//     int myNum = 2; //with the Global variable defined, and this local variable defined
+//     //               the Local variable will override it.
+//     std::cout << "printNum: " << myNum << "\n";
+// }
 
 
 // Refer to CHAPTER 28
