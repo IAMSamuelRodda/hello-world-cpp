@@ -813,32 +813,64 @@ int main(){
 
 
 
-    // //CHAPTER 32: Arrays = Data structure that can hold multiple values
-    //                        Values are accessed by an index number.
-    //                        Think about it like, "a variable that holds multiple values".
-    //                        It is more complicated then that, but its a good mental
-    //                        model.
+    // // //CHAPTER 32: Arrays = Data structure that can hold multiple values
+    // //                        Values are accessed by an index number.
+    // //                        Think about it like, "a variable that holds multiple values".
+    // //                        It is more complicated then that, but its a good mental
+    // //                        model.
+    // //
+    // std::string cars [] = {"tesla","mazda","ford"};
+    // // WARNING: Arrays can only contain values of the SAME Data Type.
+    // //std::cout << car; //this will display the memory address of where our array is located.
+    // //You can reassign values:
+    // cars[1] = "holden"; //this also means that you can declare an array first, leave it empty,
+    // //                    then assign values later
+    // std::string food[4];//this specifies the size, and does NOT start at zero.
+    // food[0]="pizza";
+    // food[1]="cheese";
+    // food[2]="sugar";
+    // food[3]="milk";
+    // std::cout << food[1] << "\n"; 
     //
-    std::string cars [] = {"tesla","mazda","ford"};
-    // WARNING: Arrays can only contain values of the SAME Data Type.
-    //std::cout << car; //this will display the memory address of where our array is located.
-    //You can reassign values:
-    cars[1] = "holden"; //this also means that you can declare an array first, leave it empty,
-    //                    then assign values later
-    std::string food[4];
-    food[0]="pizza";
-    food[1]="cheese";
-    food[2]="sugar";
-    food[3]="milk";
-    std::cout << food[1] << "\n"; 
+    //
+    // std::cout << cars[0] << "\n"; //to access it we need to give index values. 
+    // //                               This will display "tesla"
+    // //                       WARNING: Computers always start at 0, aka [0,0]
+    // std::cout << cars[1] << "\n";
+    // std::cout << cars[2] << "\n"; //this is also valid.
 
 
-    std::cout << cars[0] << "\n"; //to access it we need to give index values. 
-    //                               This will display "tesla"
-    //                       WARNING: Computers always start at 0, aka [0,0]
-    std::cout << cars[1] << "\n";
-    std::cout << cars[2] << "\n"; //this is also valid.
 
+    //CHAPTER 33: sizeof() = determines the size in bytes of: Variable, Data Type, Class,
+    //                       Object, etc.
+    std::string name1;
+    std::string name2 = "CHOUTZ IS AWESOME!";
+    double gps = 2.55645614321651489465163524165465455614451562154145;
+    char grade = 'F';
+    bool student = true;
+    int score[] = {4,2,5,7,1,3};
+
+
+    std::cout << "double (large): " << sizeof(gps) << " bytes\n";
+    std::cout << "double: " << sizeof(double) << " bytes\n"; // NOTE: this size is the same
+    //                                                                   as variable 'gps'.
+    std::cout << "string: " << sizeof(name1) << " bytes\n"; // the size of a string is 32 bytes.
+    //                                                      This is because a string simple holds
+    //                                                      an address in memory.
+    std::cout << "string (large): " << sizeof(name2) << " bytes\n";
+    std::cout << "char: " << sizeof(grade) << " bytes\n";
+    std::cout << "bool: " << sizeof(student) << " bytes\n";
+    std::cout << "array: " << sizeof(student) << " bytes\n";
+    std::cout << "int: " << sizeof(int) << " bytes\n";
+
+    //NOTE: We can find the size of an array by understanding the number of bytes and data type.
+    char grades[] = {'A', 'B','C','D', 'E'};
+    std::cout << "array (grades): " << sizeof(grades) << "\n"; // we know this will return No.Of.Elements x Data Type sizeof().
+    //Therefore, as we know the Data Type is char, we can find the number of elements!
+    std::cout << "No.Of.Elements in Array: "<< sizeof(grades)/sizeof(char) << " elements\n";
+    //BONUS QUESTION:
+    std::string students[] = {"Sam","Choutz","Mike"};
+    std::cout << "No.Of.Elements in String Array: "<< sizeof(students)/sizeof(std::string) << " elements\n";
 
 
 
