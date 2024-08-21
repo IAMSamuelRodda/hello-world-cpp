@@ -843,34 +843,53 @@ int main(){
 
     //CHAPTER 33: sizeof() = determines the size in bytes of: Variable, Data Type, Class,
     //                       Object, etc.
-    std::string name1;
-    std::string name2 = "CHOUTZ IS AWESOME!";
-    double gps = 2.55645614321651489465163524165465455614451562154145;
-    char grade = 'F';
-    bool student = true;
-    int score[] = {4,2,5,7,1,3};
+    // std::string name1;
+    // std::string name2 = "CHOUTZ IS AWESOME!";
+    // double gps = 2.55645614321651489465163524165465455614451562154145;
+    // char grade = 'F';
+    // bool student = true;
+    // int score[] = {4,2,5,7,1,3};
+    //
+    // std::cout << "double (large): " << sizeof(gps) << " bytes\n";
+    // std::cout << "double: " << sizeof(double) << " bytes\n"; // NOTE: this size is the same
+    // //                                                                   as variable 'gps'.
+    // std::cout << "string: " << sizeof(name1) << " bytes\n"; // the size of a string is 32 bytes.
+    // //                                                      This is because a string simple holds
+    // //                                                      an address in memory.
+    // std::cout << "string (large): " << sizeof(name2) << " bytes\n";
+    // std::cout << "char: " << sizeof(grade) << " bytes\n";
+    // std::cout << "bool: " << sizeof(student) << " bytes\n";
+    // std::cout << "array: " << sizeof(student) << " bytes\n";
+    // std::cout << "int: " << sizeof(int) << " bytes\n";
+    //
+    // //NOTE: We can find the size of an array by understanding the number of bytes and data type.
+    // char grades[] = {'A', 'B','C','D', 'E'};
+    // std::cout << "array (grades): " << sizeof(grades) << "\n"; // we know this will return No.Of.Elements x Data Type sizeof().
+    // //Therefore, as we know the Data Type is char, we can find the number of elements!
+    // std::cout << "No.Of.Elements in Array: "<< sizeof(grades)/sizeof(char) << " elements\n";
+    // //BONUS QUESTION:
+    // std::string students[] = {"Sam","Choutz","Mike"};
+    // std::cout << "No.Of.Elements in String Array: "<< sizeof(students)/sizeof(std::string) << " elements\n";
+    
+    
+    
+    //CHAPTER 34: Iterate over an array
+    std::string students [] = {"Sam","Choutz","Mike", "John", "Stacy"};
+    int arraySize = sizeof(students)/sizeof(std::string);
+    
+    // My version.
+    int i = 0;
+    while (i < arraySize) {
+        std::cout << students[i] << "\n";
+        i++;
+    };
+    //
+    // Bro Code version. 
+    for (int i = 0; i < arraySize; i++) {
+        std::cout << students[i] << "\n";
+    };
+    // both work, his is more condensed and easy to read.
 
-
-    std::cout << "double (large): " << sizeof(gps) << " bytes\n";
-    std::cout << "double: " << sizeof(double) << " bytes\n"; // NOTE: this size is the same
-    //                                                                   as variable 'gps'.
-    std::cout << "string: " << sizeof(name1) << " bytes\n"; // the size of a string is 32 bytes.
-    //                                                      This is because a string simple holds
-    //                                                      an address in memory.
-    std::cout << "string (large): " << sizeof(name2) << " bytes\n";
-    std::cout << "char: " << sizeof(grade) << " bytes\n";
-    std::cout << "bool: " << sizeof(student) << " bytes\n";
-    std::cout << "array: " << sizeof(student) << " bytes\n";
-    std::cout << "int: " << sizeof(int) << " bytes\n";
-
-    //NOTE: We can find the size of an array by understanding the number of bytes and data type.
-    char grades[] = {'A', 'B','C','D', 'E'};
-    std::cout << "array (grades): " << sizeof(grades) << "\n"; // we know this will return No.Of.Elements x Data Type sizeof().
-    //Therefore, as we know the Data Type is char, we can find the number of elements!
-    std::cout << "No.Of.Elements in Array: "<< sizeof(grades)/sizeof(char) << " elements\n";
-    //BONUS QUESTION:
-    std::string students[] = {"Sam","Choutz","Mike"};
-    std::cout << "No.Of.Elements in String Array: "<< sizeof(students)/sizeof(std::string) << " elements\n";
 
 
 
