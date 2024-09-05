@@ -1204,8 +1204,8 @@ int main(){
 
 
 
-    //CHAPTER 46: Credit card validator test program
-    /*
+    /* CHAPTER 46: Credit card validator test program
+    
         Luhn Algorithm:
 
         1. Double every second digit from right to left
@@ -1220,8 +1220,8 @@ int main(){
         American Express : 371449635398431
         American Express Corporate : 378734493671000
         Australian BankCard : 5610591081018250
-    */
     
+    //
     // My Code:
     // // 1. Double every second digit from right to left
     // std::string number;
@@ -1253,29 +1253,72 @@ int main(){
     // {
     //     std::cout << charToInt(number[i]) << "\n";
     // }
+    //
+    //
+    // //BRO CODE:
+    // std::string cardNumber;
+    // int result = 0;
+    //
+    // std::cout << "Enter a credit card #: ";
+    // std::cin >> cardNumber;
+    //
+    // result = sumEvenDigits(cardNumber) + sumOddDigits(cardNumber);
+    //
+    // if(result % 10 == 0)
+    // {
+    //     std::cout <<cardNumber << " is valid"; 
+    // }
+    // else
+    // {
+    //     std::cout <<cardNumber << " is not valid"; 
+    // }
+    */
 
 
-    //BRO CODE:
-    std::string cardNumber;
-    int result = 0;
+    // / * CHAPTER 46:
+    // pointers = variable that stores a memory address of another variable
+    //            that is it.
+    //            Sometimes it is easier to work with an address.
+    // & is the address-of operator
+    // * is the dereference operator
     
-    std::cout << "Enter a credit card #: ";
-    std::cin >> cardNumber;
-    
-    result = sumEvenDigits(cardNumber) + sumOddDigits(cardNumber);
+    /* Analogy: If I have free pizzas to give out to my neighbours, I could 
+       carry all the pizza around with me and hand them out. However, it would
+       be easier to go around without the pizzas and just tell people
+       where the free pizza as; my house at my address.
+    */
 
-    if(result % 10 == 0)
-    {
-        std::cout <<cardNumber << " is valid"; 
-    }
-    else
-    {
-        std::cout <<cardNumber << " is not valid"; 
-    }
+    // Variables
+    std::string name = "CHOUTZ";
+    int age = 32;
+    std::string freePizzas[5] = {"pizza1","pizza2","pizza3","pizza4","pizza5"};
+
+    // Pointers
+    std::string *p_Name = &name;
+    int *p_Age = &age;
+    std::string *p_FreePizzas = freePizzas; // An Array is ALREADY an address. No need
+    //                                          to use the & operator.
+
+    //Output addresses
+    std::cout << p_Name << "\n";
+    std::cout << p_Age << "\n";
+    std::cout << p_FreePizzas << "\n";
+
+    //Output values
+    std::cout << *p_Name << "\n";
+    std::cout << *p_Age << "\n";
+    std::cout << *p_FreePizzas << "\n";
+
+
+    //
+    // * /
 
     // THE END
     std::cout << "\n\n------------ PROGRAM ENDED ------------";
     return 0;
+
+    
+    //
 }
 
 //6011000990139424
