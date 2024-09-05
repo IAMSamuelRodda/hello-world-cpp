@@ -31,7 +31,12 @@ int searchArray(std::string array[], int size, std::string element);
 void bubbleSort(int array[], int size);
 void swap(std::string &x, std::string &y);
 void swapAddresses(std::string x, std::string y);
-
+void printInfo (const std::string &name, const int &age);
+int charToInt (char x);
+//BRO CODE - CHAPTER 29
+int getDigit(const int number);
+int sumOddDigits(const std::string cardNumber);
+int sumEvenDigits(const std::string cardNumber);
 
 //GLOBAL VARIABLES
 //WARNING: It is best to avoid Global variables if you can as it pollutes the global namespace.
@@ -1159,75 +1164,214 @@ int main(){
     // //       to set aside to store the variable.
 
 
-    //CHAPTER 44: Pass by VALUE vs pass by REFERENCE
+    // //CHAPTER 44: Pass by VALUE vs pass by REFERENCE
 
-    std::string x = "Kool-Aid";
-    std::string y = "Water";
-    //std::string temp;
+    // std::string x = "Kool-Aid";
+    // std::string y = "Water";
+    // //std::string temp;
 
-    //Let's swap these variables.
-    // temp = x;
-    // x = y;
-    // y = temp;
+    // //Let's swap these variables.
+    // // temp = x;
+    // // x = y;
+    // // y = temp;
 
-    // std::cout << "x = "<< x << "\n";
-    // std::cout << "y = "<< y << "\n";
+    // // std::cout << "x = "<< x << "\n";
+    // // std::cout << "y = "<< y << "\n";
 
-    //Now, let's create a function that will swap these variables for us.
+    // //Now, let's create a function that will swap these variables for us.
 
-    //swap(x,y);
-    // NOTE: To reinforce the differences between VALUE and REFERENCE passing, 
-    //       here is a VALUE pass comparison.
+    // //swap(x,y);
+    // // NOTE: To reinforce the differences between VALUE and REFERENCE passing, 
+    // //       here is a VALUE pass comparison.
 
-    std::cout << "x = "<< x << " : Memory address = " << &x << "\n";
-    std::cout << "y = "<< y << " : Memory address = " << &y << "\n";
-    swapAddresses(x,y);
-    //WARNING: You should use pass by REFERENCE as often as possible unless you
-    //         a specific reason to pass by VALUE.
+    // std::cout << "x = "<< x << " : Memory address = " << &x << "\n";
+    // std::cout << "y = "<< y << " : Memory address = " << &y << "\n";
+    // swapAddresses(x,y);
+    // //WARNING: You should use pass by REFERENCE as often as possible unless you
+    // //         a specific reason to pass by VALUE.
+    
+
+
+    // //CHAPTER 45: Const perameter = parameter that is effectively read-only.
+    // //                              It is code that is more secure & communicates
+    // //                              intent.
+    // //                              It is useful for references and pointers. 
+
+    // std::string name = "CHOUTZ";
+    // int age = 33;
+    // printInfo(name, age);
+
+
+
+
+    //CHAPTER 46: Credit card validator test program
+    /*
+        Luhn Algorithm:
+
+        1. Double every second digit from right to left
+        If doubled number is 2 digits, split them
+        2. Add all single digits from step 1
+        3. Add all odd numbered digits from right to left
+        4. Sum results from steps 2 & 3
+        5. If step 4 is divisble by 10, # is valid
+
+        Test Credit Cards:
+        American Express : 378282246310005
+        American Express : 371449635398431
+        American Express Corporate : 378734493671000
+        Australian BankCard : 5610591081018250
+    */
+    
+    // My Code:
+    // // 1. Double every second digit from right to left
+    // std::string number;
+    // std::cout << "Enter credit card number: \n";
+    // std::getline(std::cin, number);
+    // //Check for whitespace and remove it.
+    // std::cout << "Original size: " << number.size() << "\n";    
+    // // Remove all spaces from the string
+    // for (int i = 0; i < number.size();) {
+    //     if (number[i] == ' ') { //GROK 2.0 had this idea to fix my error.
+    //         number.erase(i, 1); // Erase the space at current index
+    //         //Erase Method: Instead of using find() inside the loop which can
+    //         //              return a huge "out of range number" if no-spaces are
+    //         //              found, we directly check if the character at index i is
+    //         //              a space. This approach avoids the out-of-range error
+    //         //              because we're only erasing when we know there's a character
+    //         //              to erase.
+    //         // NOTE: Don't increment i here because erase shifts all elements
+    //     } else {
+    //         ++i; // Only increment i if no erase was performed. This is a dynamic
+    //         //      increment method based on a changing size.
+    //     }
+    // }
+    // std::cout << "Number after removing spaces: " << number << "\n";
+    // std::cout << "New size: " << number.size() << "\n";
+    // //std::cout << "Number at position #1 x 2: " << charToInt(number[0])*2 << "\n"; //test lines
+    // //std::cout << charToInt(number[2]) << "\n"; //test lines
+    // for (int i = number.size(); number.size()-i < number.size();i-2)
+    // {
+    //     std::cout << charToInt(number[i]) << "\n";
+    // }
+
+
+    //BRO CODE:
+    std::string cardNumber;
+    int result = 0;
+    
+    std::cout << "Enter a credit card #: ";
+    std::cin >> cardNumber;
+    
+    result = sumEvenDigits(cardNumber) + sumOddDigits(cardNumber);
+
+    if(result % 10 == 0)
+    {
+        std::cout <<cardNumber << " is valid"; 
+    }
+    else
+    {
+        std::cout <<cardNumber << " is not valid"; 
+    }
 
     // THE END
-    std::cout << "\n------------ PROGRAM ENDED ------------";
+    std::cout << "\n\n------------ PROGRAM ENDED ------------";
     return 0;
 }
 
-
+//6011000990139424
 // FUNCTION DEFENITIONS
 
+// Refer to CHAPTER 46
+// //My Code
+// int charToInt(char x)
+// {
+//     // Ensure the character is a digit
+//     if (x >= '0' && x <= '9') {
+//         // Subtract the ASCII value of '0' to get the integer value
+//         // NOTE: ASCII Value Manipulation: In ASCII, characters '0' through '9'
+//         //       are sequential. Therefore, if you subtract the ASCII value
+//         //       of '0' from any digit character, you get its integer value.
+//         return x - '0';
+//     } else 
+//     {
+//         // Handle error or non-digit character
+//         return -1;
+//     }
+// }
+// Bro Code - CHAPTER 46
+int getDigit(const int number)
+{
+    return number %10 + (number / 10 % 10);
+}
+int sumOddDigits(const std::string cardNumber)
+{
+    int sum = 0;
+    for(int i = cardNumber.size() - 1; i >= 0; i-=2)
+    {
+        sum+= getDigit(cardNumber[i]-'0');
+    }
+    return sum;
+}
+int sumEvenDigits(const std::string cardNumber)
+{
+    // Remember, we can treat a string as an array of characters. Let's iterate
+    // with a for() loop.
+    int sum = 0;
+    for(int i = cardNumber.size() - 2; i >= 0; i-=2)
+    {
+        sum+= getDigit((cardNumber[i]-'0')*2);
+    }
+    return sum;
+}
 
 
-// Refer to CHAPTER 44
-// void swap(std::string x, std::string y)
+// // Refer to CHAPTER 45
+// void printInfo (const std::string &name, const int &age) 
+// {   // When passing VALUE, as they are copies, its not a big deal. However, when
+// //     REFERENCE variables, its a big deal! We don't want people modifying originals.
+//     // name = " ";
+//     // age = 0;
+//     // We don't want the above to happen at all. The const intent will prevent this from
+//     // from building until we remove it.  
+//     std::cout << name << "\n";
+//     std::cout << age << "\n";
+// }
+
+
+
+// // Refer to CHAPTER 44
+// // void swap(std::string x, std::string y)
+// // {
+// //     std::string temp;
+// //     temp = x;
+// //     x = y;
+// //     y = temp;
+// // }
+// // HA! This above didnt swap them. Why?
+// // NOTE: Normally, when we pass a variable to a function, we are passing by VALUE. When we
+// //       invoke the function, we are creating copies of the original values. What we have 
+// //       above is a copy of the variable x & y, with the originals still sitting in the main()
+// //       function.
+// //       All we are doing in the function, is switching the two copies around, then displaying
+// //       the originals which were never swapped! xD
+// //       Pass by VALUE creates copies of the Arguments.
+// //       If you need to change the original values, we need to pass by REFERENCE.
+// //       A REFERENCE = Memory address in this case. A location in memory where the original
+// //       is stored.
+// void swap(std::string &x, std::string &y)
 // {
 //     std::string temp;
 //     temp = x;
 //     x = y;
 //     y = temp;
 // }
-// HA! This above didnt swap them. Why?
-// NOTE: Normally, when we pass a variable to a function, we are passing by VALUE. When we
-//       invoke the function, we are creating copies of the original values. What we have 
-//       above is a copy of the variable x & y, with the originals still sitting in the main()
-//       function.
-//       All we are doing in the function, is switching the two copies around, then displaying
-//       the originals which were never swapped! xD
-//       Pass by VALUE creates copies of the Arguments.
-//       If you need to change the original values, we need to pass by REFERENCE.
-//       A REFERENCE = Memory address in this case. A location in memory where the original
-//       is stored.
-void swap(std::string &x, std::string &y)
-{
-    std::string temp;
-    temp = x;
-    x = y;
-    y = temp;
-}
 
-void swapAddresses(std::string x, std::string y)
-{
-    std::cout << "x = "<< x << " : Memory address = " << &x << "\n";
-    std::cout << "y = "<< y << " : Memory address = " << &y << "\n";
-}
-// This worked! You are learning. ;P
+// void swapAddresses(std::string x, std::string y)
+// {
+//     std::cout << "x = "<< x << " : Memory address = " << &x << "\n";
+//     std::cout << "y = "<< y << " : Memory address = " << &y << "\n";
+// }
+// // This worked! You are learning. ;P
 
 
 
